@@ -1,0 +1,5 @@
+<!--pages/order/index.wxml-->
+<view class="">
+    <!--搜索框-->
+    <Searchinput></Searchinput>
+</view>

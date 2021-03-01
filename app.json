@@ -1,0 +1,61 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/order/index",
+    "pages/join/index",
+    "pages/user/index",
+    "pages/search/index",
+    "pages/guide/index",
+    "pages/introduce/index",
+    "pages/classified/index",
+    "pages/unclassified/index",
+    "pages/science/index",
+    "pages/submit/index",
+    "pages/pay/index",
+    "pages/order_information/index",
+    "pages/staff-login/index",
+    "pages/apply/index",
+    "pages/notice/index",
+    "pages/feedback/index",
+    "pages/success/index"
+  ],
+  "window": {
+    "backgroundColor": "#7dd0b4",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#7dd0b4",
+    "navigationBarTitleText": "“句芒”上门回收",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh":true
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "images/icon/_index.png",
+      "selectedIconPath": "images/icon/index.png"
+    },
+    {
+      "pagePath": "pages/order/index",
+      "text": "订单",
+      "iconPath": "images/icon/_order.png",
+      "selectedIconPath": "images/icon/order.png"
+    },
+    {
+      "pagePath": "pages/join/index",
+      "text": "加入",
+      "iconPath": "images/icon/_join.png",
+      "selectedIconPath": "images/icon/join.png"
+    },
+    {
+      "pagePath": "pages/user/index",
+      "text": "用户",
+      "iconPath": "images/icon/_user.png",
+      "selectedIconPath": "images/icon/user.png"
+    }
+  ],
+  "color":"#ffffff",
+  "selectedColor":"#33866a",
+  "backgroundColor":"#7dd0b4"
+  },
+  "sitemapLocation": "sitemap.json"
+}

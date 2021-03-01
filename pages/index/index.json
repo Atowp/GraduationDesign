@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "Searchinput":"../../components/Searchinput/Searchinput"
+  },
+  "navigationBarTitleText": "“句芒”上门回收"
+}
