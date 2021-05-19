@@ -1,0 +1,47 @@
+<view class="box">
+    <block wx:if="{{!hasLocation}}">
+        <view class="locate_box" bindtap="selectPoint">
+        <image class="locate_icon" src="../../images/icon/location.png"></image>
+        <view class="locate_text">获取当前位置信息</view>
+        </view>
+    </block>
+    <block wx:else>
+        <view>{{point}}</view>
+    </block>
+    
+    
+</view>
+<form>
+<view class="box">
+    <view class="info_box">
+        <view class="info_title">信息核对</view>
+        <view class="info_text">陈女士 13532631276</view>
+        <view class="info_text"><view class="info_title">订单类型</view><slot></slot></view>
+        <view>
+            <view class="info_title">需要回收的物品千克数</view>
+            <view class="item2 info_text">
+                <input auto-focus placeholder="输入" type="number"
+                       bindinput="inputValue"/>已输入{{inputValue}}千克
+            </view>
+        </view>
+        <view class="info_title">选择的上门服务时间</view>
+        <view>
+            <picker class="picker_box" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <view class="picker">
+                    {{array[index]}}
+                </view>
+            </picker>
+        </view>
+    </view>
+</view>
+<view class="box">
+    <view class="remark_box">
+        <textarea placeholder="备注"></textarea>
+    </view>
+</view>
+</form>
+<navigator class="box" url="">
+    <button class="submit" formType="submit">
+        提交
+    </button>
+</navigator>

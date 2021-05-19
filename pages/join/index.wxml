@@ -1,2 +1,5 @@
-<!--pages/join/index.wxml-->
-<text>pages/join/index.wxml</text>
+<image mode="widthFix" src="../../images/pic/becomePicker.jpg"></image>
+<view class="container">
+    <navigator class="public join" url="../staff-login/index">加入我们</navigator>
+    <navigator class="public enter" url="../picker_index/picker_index" open-type="reLaunch">进入拾荒者子系统</navigator>
+</view>

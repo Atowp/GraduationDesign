@@ -1,5 +1,164 @@
 <!--pages/order/index.wxml-->
 <view class="">
     <!--搜索框-->
-    <Searchinput></Searchinput>
+    <SearchInput></SearchInput>
+    <!--订单-->
+    <view class="order_content">
+        <view class="block">
+            <text class="title">进行中的订单</text>
+            <view class="order_box">
+                <!--接取的订单-->
+                <view class="order dd fold">
+                    <view data-index="1" catchtap='panel'>
+                    <view>
+                        <text>订单类型</text>
+                        可回收物
+                    </view>
+                    <view>
+                        <text>重量</text>
+                        1kg
+                    </view>
+                    <view>
+                        <text>预约时间</text>
+                        8:00-9:00
+                    </view>
+                    </view>
+                    <!--折叠展开分割线-->
+                    <view class="unfold" wx:if="{{showIndex == 1}}"  data-index="0" catchtap='panel'>
+                    <view>
+                        <text>详细内容</text>
+                        <view>报纸，玻璃瓶，衣服</view>
+                    </view>
+                    <view>
+                        <text>联系人</text>
+                        陈女士
+                    </view>
+                    <view>
+                        <text>电话</text>
+                        13532631276
+                    </view>
+                    <view>
+                        <text>详细地址</text>
+                        <view>广东省珠海市金凤路6号北京理工大学珠海学院</view>
+                    </view>
+                    <view>
+                        <text>订单状态</text>
+                        进行中
+                    </view>
+                    <view class="button_box cancel" catchtap="cancel">
+                        <view class="button">取消订单</view>
+                    </view>
+                    </view>
+                    <!--折叠展开分割线-->
+                </view>
+            </view>
+        </view>
+        <view class="block">
+            <view class="title_box">
+            <text class="title">历史订单</text>
+            <!--这个bind应该绑在循环项上-->
+                <picker class="picker_box" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                    <view class="picker">{{array[index]}}</view>
+                </picker>
+            </view>
+            <view class="order_box">
+                <!--订单1-->
+                <view class="order d1">
+                    <view>
+                        <text>订单类型</text>
+                        一键回收
+                    </view>
+                    <view>
+                        <text>重量</text>
+                        1kg
+                    </view>
+                    <view>
+                        <text>预约时间</text>
+                        8:00-9:00
+                    </view>
+                    <view>
+                        <text>日期</text>
+                        2020/4/20
+                    </view>
+                </view>
+                <!--订单2-->
+                <view class="order d2">
+                    <view data-index="2" catchtap='panel'>
+                    <view>
+                        <text>订单类型</text>
+                        一键回收
+                    </view>
+                    <view>
+                        <text>重量</text>
+                        1kg
+                    </view>
+                    <view>
+                        <text>预约时间</text>
+                        8:00-9:00
+                    </view>
+                    <view>
+                        <text>日期</text>
+                        2020/4/20
+                    </view>
+                    </view>
+                    <view class="unfold" wx:if="{{showIndex == 2}}"  data-index="0" catchtap='panel'>
+                    <view>
+                        <text>联系人</text>
+                        陈女士
+                    </view>
+                    <view>
+                        <text>电话</text>
+                        13532631276
+                    </view>
+                    <view>
+                        <text>详细地址</text>
+                        <view>广东省珠海市金凤路6号北京理工大学珠海学院</view>
+                    </view>
+                    <view>
+                        <text>订单状态</text>
+                        交易完成
+                    </view>
+                    </view>
+                </view>
+                <!--订单3-->
+                <view class="order d1">
+                    <view>
+                        <text>订单类型</text>
+                        一键回收
+                    </view>
+                    <view>
+                        <text>重量</text>
+                        1kg
+                    </view>
+                    <view>
+                        <text>预约时间</text>
+                        8:00-9:00
+                    </view>
+                    <view>
+                        <text>日期</text>
+                        2020/4/20
+                    </view>
+                </view>
+                <!--订单4-->
+                <view class="order d2">
+                    <view>
+                        <text>订单类型</text>
+                        一键回收
+                    </view>
+                    <view>
+                        <text>重量</text>
+                        1kg
+                    </view>
+                    <view>
+                        <text>预约时间</text>
+                        8:00-9:00
+                    </view>
+                    <view>
+                        <text>日期</text>
+                        2020/4/20
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
 </view>

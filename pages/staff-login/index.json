@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#fbd22c",
+  "navigationBarTitleText": "加入我们"
 }

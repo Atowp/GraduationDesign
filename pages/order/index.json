@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "Searchinput":"../../components/Searchinput/Searchinput"
-  }
+    "SearchInput":"../../components/SearchInput/SearchInput"
+  },
+  "navigationBarTitleText": "订单管理"
 }

@@ -7,17 +7,32 @@
     "pages/search/index",
     "pages/guide/index",
     "pages/introduce/index",
-    "pages/classified/index",
-    "pages/unclassified/index",
+    "pages/recycle_classified/index",
     "pages/science/index",
     "pages/submit/index",
     "pages/pay/index",
     "pages/order_information/index",
-    "pages/staff-login/index",
     "pages/apply/index",
     "pages/notice/index",
     "pages/feedback/index",
-    "pages/success/index"
+    "pages/success/index",
+    "pages/picker_index/picker_index",
+    "pages/kitchen_classified/index",
+    "pages/harmful_classified/index",
+    "pages/other_classified/index",
+    "pages/test/index",
+    "pages/picker_order/picker_order",
+    "pages/picker_info/picker_info",
+    "pages/furniture/index",
+    "pages/book/index",
+    "pages/technology/index",
+    "pages/login/index",
+    "pages/recycle/index",
+    "pages/locate/index",
+    "pages/staff-login/index",
+    "pages/confirm/index",
+    "pages/notice2/index",
+    "pages/phone/index"
   ],
   "window": {
     "backgroundColor": "#7dd0b4",
@@ -25,37 +40,49 @@
     "navigationBarBackgroundColor": "#7dd0b4",
     "navigationBarTitleText": "“句芒”上门回收",
     "navigationBarTextStyle": "white",
-    "enablePullDownRefresh":true
+    "enablePullDownRefresh": true
   },
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath": "images/icon/_index.png",
-      "selectedIconPath": "images/icon/index.png"
-    },
-    {
-      "pagePath": "pages/order/index",
-      "text": "订单",
-      "iconPath": "images/icon/_order.png",
-      "selectedIconPath": "images/icon/order.png"
-    },
-    {
-      "pagePath": "pages/join/index",
-      "text": "加入",
-      "iconPath": "images/icon/_join.png",
-      "selectedIconPath": "images/icon/join.png"
-    },
-    {
-      "pagePath": "pages/user/index",
-      "text": "用户",
-      "iconPath": "images/icon/_user.png",
-      "selectedIconPath": "images/icon/user.png"
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/icon/_index.png",
+        "selectedIconPath": "images/icon/index.png"
+      },
+      {
+        "pagePath": "pages/order/index",
+        "text": "订单",
+        "iconPath": "images/icon/_order.png",
+        "selectedIconPath": "images/icon/order.png"
+      },
+      {
+        "pagePath": "pages/join/index",
+        "text": "加入",
+        "iconPath": "images/icon/_join.png",
+        "selectedIconPath": "images/icon/join.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "用户",
+        "iconPath": "images/icon/_user.png",
+        "selectedIconPath": "images/icon/user.png"
+      }
+    ],
+    "color": "#ffffff",
+    "selectedColor": "#33866a",
+    "backgroundColor": "#7dd0b4"
+  },
+  "plugins": {
+    "chooseLocation": {
+      "version": "1.0.6",
+      "provider": "wx76a9a06e5b4e693e"
     }
-  ],
-  "color":"#ffffff",
-  "selectedColor":"#33866a",
-  "backgroundColor":"#7dd0b4"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序定位"
+    }
   },
   "sitemapLocation": "sitemap.json"
 }

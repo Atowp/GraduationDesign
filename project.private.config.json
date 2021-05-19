@@ -1,0 +1,78 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/recycle_classified/index",
+          "pathName": "pages/recycle_classified/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/picker_index/picker_index",
+          "pathName": "pages/picker_index/picker_index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/user/index",
+          "pathName": "pages/user/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/recycle/index",
+          "pathName": "pages/recycle/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/notice2/index",
+          "pathName": "pages/notice2/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/feedback/index",
+          "pathName": "pages/feedback/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/search/index",
+          "pathName": "pages/search/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/order/index",
+          "pathName": "pages/order/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/login/index",
+          "pathName": "pages/login/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

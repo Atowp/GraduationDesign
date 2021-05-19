@@ -1,0 +1,25 @@
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40rem;
+}
+.button {
+  border-radius: 30rem;
+  height: 6rem;
+  width: 6rem;
+  background-color: var(--themeColor);
+  box-shadow: 5rpx 5rpx 15rpx #888;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: white;
+}
+button::after {
+  border: none;
+}

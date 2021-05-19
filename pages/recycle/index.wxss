@@ -1,0 +1,34 @@
+.box {
+  margin: 15rpx;
+  background-color: var(--themeColor);
+  height: 200rpx;
+  border-radius: 33rpx;
+  font-size: 35rpx;
+  color: #fff;
+  line-height: 150%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box .item .item2 {
+  display: flex;
+}
+.box .item .item2 input {
+  background-color: #fff;
+  width: 100rpx;
+  color: #000;
+}
+.bottom {
+  position: fixed;
+  bottom: 3%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.bottom .submit {
+  background-color: var(--themeColor);
+  border-radius: 33rem;
+  padding: 15rpx 25rpx;
+  font-size: 40rpx;
+  color: #fff;
+}

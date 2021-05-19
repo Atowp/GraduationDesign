@@ -1,2 +1,41 @@
-<!--pages/staff-login/index.wxml-->
-<text>pages/staff-login/index.wxml</text>
+<view class="box">
+<form class="picker_application" bindsubmit="formSubmit" bindreset="formReset">
+    <view class="bigview">
+        <view >请问您的真实姓名是：</view>
+        <input name="name" placeholder="" />
+    </view>
+    <view class="bigview">
+        <view >请问您的性别是：</view>
+        <radio-group name="sexual">
+            <label><radio value="radio1" color="#fbd22c"/>男</label>
+            <label><radio value="radio2" color="#fbd22c"/>女</label>
+        </radio-group>
+    </view>
+    <view class="bigview">
+        <view >请问您的联系电话号码是：</view>
+        <input name="phone" placeholder="" />
+    </view>
+    <view class="bigview">
+        <view >请问您方便联系的时间是：</view>
+        <checkbox-group name="time">
+            <label><checkbox class="checkbox" value="checkbox1" color="#fbd22c"/>上午8：00-11：30</label>
+            <label><checkbox class="checkbox" value="checkbox2" color="#fbd22c"/>下午14：00-17：00</label>
+            <label><checkbox class="checkbox" value="checkbox3" color="#fbd22c"/>晚上19：00-22：00</label>
+        </checkbox-group>
+    </view>
+    <view class="bigview">
+        <view >请问您的所在地区为：</view>
+        <input name="area" placeholder="" />
+    </view>
+    <view class="bigview">
+        <view>我们想再次确认您是否决定了要加入我们，成为拾荒者中的一员：</view>
+        <view class="submit button_box">
+            <button formType="submit">是的，我非常确定</button>
+        </view>
+        <view class="reset button_box">
+            <button formType="reset">清空数据</button>
+        </view>
+        
+    </view>
+</form>
+</view>

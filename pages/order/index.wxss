@@ -1,1 +1,67 @@
-/* pages/order/index.wxss */
+page {
+  font-size: 35rpx;
+}
+.top {
+  margin: 30rpx 15rpx;
+}
+.order_content {
+  padding: 15rpx;
+  box-sizing: border-box;
+}
+.order_content .block {
+  margin-bottom: 15rpx;
+  width: 100%;
+}
+.order_content .block .title {
+  color: var(--themeColor);
+  font-weight: bold;
+  font-size: 40rpx;
+}
+.order_box {
+  display: flex;
+  flex-wrap: wrap;
+}
+.order_box .order {
+  background-color: #d9d9d9;
+  width: 49%;
+  height: 100%;
+  border-radius: 11rpx;
+  padding: 15rpx 20rpx;
+  margin-top: 10rpx;
+}
+.order_box .order text {
+  font-weight: bold;
+}
+.order_box .dd {
+  background-color: var(--themeColor);
+  color: #fff;
+}
+.order_box .d1 {
+  margin-right: 10rpx;
+}
+.order_box .button_box {
+  display: flex;
+  justify-content: center;
+  background-color: var(--themeColor);
+  color: #fff;
+  font-weight: bold;
+  margin-top: 10rpx;
+}
+.order_box .cancel {
+  background-color: #fff;
+  color: var(--themeColor);
+}
+.title_box {
+  display: flex;
+}
+.title_box .picker_box {
+  background-color: var(--themeColor);
+  margin-left: 15rpx;
+  display: flex;
+  align-items: center;
+  border-radius: 11rpx;
+  padding: 0 5rpx;
+}
+.title_box .picker_box .picker {
+  color: #fff;
+}

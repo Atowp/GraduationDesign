@@ -1,2 +1,3 @@
-<!--pages/introduce/index.wxml-->
-<text>pages/introduce/index.wxml</text>
+<view class="content title" style="line-height: 200%">基于小程序的垃圾分类上门回收系统的设计与实现</view>
+<view class="content">本次毕业课题研究的是基于微信原生MINA框架实现的垃圾分类和上门回收服务与互联网技术是如何结合的，目的是为了开发一个符合当下环保需求、又能方便人们处理生活垃圾的小程序系统。在依旧重视环保、且互联网+的网络新形态全面推进的社会背景下，把代表环保的垃圾分类和上门服务模式与互联网技术之一的小程序结合起来，在未来也会成为人们不可或缺的线下形式之一。</view>
+<view class="content bottom">Copyright © 潘汝蕾</view>

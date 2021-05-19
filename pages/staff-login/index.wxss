@@ -1,1 +1,28 @@
-/* pages/staff-login/index.wxss */
+.box {
+  margin: 15rpx;
+  font-size: 35rpx;
+}
+.box view {
+  margin: 10rpx 0;
+}
+.box .bigview {
+  margin: 35rpx 0;
+}
+.box input {
+  border: 1rpx solid #fbd22c;
+  height: 50rpx;
+}
+.box label {
+  display: flex;
+}
+.box button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: #000;
+}
+.box button::after {
+  border: none;
+}
+.box .button_box {
+  background-color: #fbd22c;
+}

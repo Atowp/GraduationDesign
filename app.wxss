@@ -8,5 +8,6 @@ page,view,text,swiper,swiper-item,navigator{
 
 page{
     --themeColor: #7dd0b4;
+    --pickerColor: #fbd22c;
     font-size: 44rpx;
 }

@@ -1,0 +1,1 @@
+<view bindtap="selectPoint">地图选点</view>
