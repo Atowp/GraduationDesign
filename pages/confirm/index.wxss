@@ -42,10 +42,14 @@ page {
   background-color: #f9f9f9;
   width: 100rpx;
   color: #000;
+  text-align: center;
+  margin-right: 15rpx;
+  height: 100%;
 }
 .info_box .picker {
   background-color: #f9f9f9;
-  width: 200rpx;
+  width: 250rpx;
+  text-align: center;
 }
 .remark_box textarea {
   background-color: #f9f9f9;

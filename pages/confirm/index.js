@@ -11,7 +11,7 @@ Page({
     latitude: [],
     longitude: [],
     hasLocation: false,
-    point: ['珠海市', '香洲区'],
+    point: [],
 
     inputValue: 0,
 
@@ -52,7 +52,7 @@ Page({
 
     index: 0,
 
-    region: []
+    region: ['广东省','珠海市', '香洲区']
   },
   inputValue(e){
     this.setData({

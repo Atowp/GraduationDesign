@@ -9,7 +9,7 @@
     <view class="info_box" bindtap="selectPoint">
         <view class="info_title">地址</view>
         <!--<slot name="point"></slot>-->
-        <view name="point">{{point.name}}</view>
+        <view name="point">{{point.address}}{{point.name}}</view>
     </view>
     </block>
 </view>
@@ -20,7 +20,7 @@
         <view class="info_text">
             <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
                 <view>
-                所在地区：{{region[1]}}{{region[2]}}
+                {{region[1]}}{{region[2]}}
                 </view>
             </picker>
         </view>
