@@ -1,0 +1,50 @@
+<!--index.wxml-->
+<view class="">
+    <!--搜索框-->
+    <SearchInput></SearchInput>
+    <!--轮播图-->
+    <!--swiper和image都有各自的默认宽高-->
+    <view class="index_swiper">
+    <swiper autoplay indicator-dots circular>
+        <swiper-item
+            wx:for="{{swiperList}}"
+            wx:key="rotate_id"
+        >
+            <image mode="widthFix" src="{{item.image_src}}" bindtap="dispatchR" data-url="{{item.url}}"/>        
+        </swiper-item>
+    </swiper>
+    </view>
+    <!--导航1-->
+    <view><text class="text_nav">上门服务</text></view>
+    <view class="index_navigate">
+        <view 
+        class="navigator1"
+        wx:for="{{navigateList}}"
+        wx:key="name"
+        >
+        <image mode="widthFix" src="{{item.image_src}}" bindtap="dispatchN" data-url="{{item.url}}"/>
+        </view>
+    </view>
+    <!--导航2-->
+    <text class="text_nav">分类回收</text>
+    <view class="index_navigate2">
+        <view 
+        class="navigator2"
+        wx:for="{{navigate2List}}"
+        wx:key="name"
+        >
+        <image mode="widthFix" src="{{item.image_src}}" bindtap="dispatchN2" data-url="{{item.url}}"/>
+        </view>
+    </view>
+    <!--一键回收-->
+    <text class="text_nav">一键回收</text>
+    <navigator url="../recycle/index">
+    <button class="recycle">
+        一 键 回 收
+    </button>
+    </navigator>
+    <view class="bottom">
+        <text class="text_bottom">——没有更多了——</text>
+    </view>
+    <!--<navigator url="../test/index?id=1">出来吧参数跳转测试</navigator>-->
+</view>

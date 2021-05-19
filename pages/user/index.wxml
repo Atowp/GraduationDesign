@@ -1,0 +1,64 @@
+<view class="box_test">
+    <!--头像和昵称-->
+    <view class="box1">
+        <block wx:if="{{!hasUserInfo}}">
+            <view class="button box1_1" wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取用户信息 </view>
+        </block>
+        <block wx:else>
+        <view class="box1_1">
+            <image class="avator" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        </view>
+        <text class="box1_1">{{userInfo.nickName}}</text>
+        </block>
+    </view>
+</view>
+<view class="box box2">
+    <!--所在地和手机号-->
+    <view class="button_box">
+        性别：<view class="input">
+            <block wx:if="{{!hasUserInfo}}">未知</block>
+            <block wx:else>{{userInfo.gender === 1 ? '男' : '女'}}</block>
+        </view>
+        <view class="bind_button">修改</view>
+    </view>
+    <view class="button_box">
+        地区：<view class="input">
+            <block wx:if="{{!hasUserInfo}}">未知</block>
+            <block wx:else>{{userInfo.city}}</block>
+        </view>
+        <!--修改-->
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view class="bind_button">修改</view>
+        </picker>
+    </view>
+    <!--未绑定-->
+    <view class="button_box" wx:if="{{1}}">
+        电话：<input placeholder="未绑定"/>
+        <view class="bind_button">绑定</view>
+    </view>
+    <!--已绑定-->
+    <view class="button_box" wx:else>
+        电话：<view><!--后台数据--></view>
+    </view>
+</view>
+<view class="box box3">
+    <!--通知和客服-->
+    <view class="button1">
+    <button class="customer" open-type="contact" plain="true" bindcontact="handleContact"></button>
+    <view class="customer_text">客服</view>
+    </view>
+    <navigator class="button2" url="../notice/index">
+        <view><image class="news" src="../../images/icon/news.png"/></view>
+        <view>消息</view>
+    </navigator>
+    <navigator class="button2" url="../phone/index">
+    <view>
+        <view><image class="news" src="../../images/icon/phone.png"/></view>
+        <view>修改</view>
+    </view>
+    </navigator>
+    <navigator class="button2" url="../feedback/index">
+        <view><image class="news" src="../../images/icon/feedback.png"/></view>
+        <view>反馈</view>
+    </navigator>
+</view>

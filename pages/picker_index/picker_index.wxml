@@ -1,0 +1,349 @@
+<!--监听自定义事件-->
+<Nav nav="{{nav}}" bindtoggle="toToggle">
+    <!--首页-->
+    <block wx:if="{{nav[0].isActive}}" class="block1">
+        <scroll-view scroll-y class="scroll">
+        <view class="top">欢迎回来，Atowp</view>
+        <view class="order_content">
+            <view class="block">
+                <text class="title">已接取的订单</text>
+                <view class="order_box" bindtap="tapUnfold" data-unfold="{{true}}">
+                    <!--接取的订单1-->
+                    <view class="order d1 dd">
+                        <view>
+                            <text>订单类型</text>
+                            一键回收
+                        </view>
+                        <view>
+                            <text>地区</text>
+                            珠海
+                        </view>
+                        <view>
+                            <text>重量</text>
+                            1kg
+                        </view>
+                        <view>
+                            <text>预约时间</text>
+                            8:00-9:00
+                        </view>
+                    </view>
+                    <!--订单2-->
+                    <view class="order dd">
+                        <view>
+                            <text>订单类型</text>
+                            一键回收
+                        </view>
+                        <view>
+                            <text>地区</text>
+                            珠海
+                        </view>
+                        <view>
+                            <text>重量</text>
+                            1kg
+                        </view>
+                        <view>
+                            <text>预约时间</text>
+                            8:00-9:00
+                        </view>
+                        <view>
+                            <text>联系人</text>
+                            陈女士
+                        </view>
+                        <view>
+                            <text>电话</text>
+                            13532631276
+                        </view>
+                        <view>
+                            <text>详细地址</text>
+                            <view>广东省珠海市金凤路6号北京理工大学珠海学院</view>
+                        </view>
+                        <view>
+                            <text>订单状态</text>
+                            进行中
+                        </view>
+                        <view class="button_box">
+                            <view class="button">确认订单完成</view>
+                        </view>
+                        <view class="button_box cancel">
+                            <view class="button">取消订单</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="block">
+                <text class="title">可接取的订单</text>
+                <checkbox-group bindchange="checkboxChange">
+                    <label class="checkbox" wx:for="{{items}}">
+                        <checkbox value="{{item.name}}" checked="{{item.checked}}" color="#fbd22c"/>{{item.value}}
+                    </label>
+                </checkbox-group>
+                <view class="order_box" bindtap="tapUnfold" data-unfold="{{true}}">
+                    <!--订单1-->
+                    <view class="order d1">
+                        <view>
+                            <text>订单类型</text>
+                            一键回收
+                        </view>
+                        <view>
+                            <text>地区</text>
+                            珠海
+                        </view>
+                        <view>
+                            <text>重量</text>
+                            1kg
+                        </view>
+                        <view>
+                            <text>预约时间</text>
+                            8:00-9:00
+                        </view>
+                    </view>
+                    <!--订单2-->
+                    <view class="order d2">
+                        <view>
+                            <text>订单类型</text>
+                            一键回收
+                        </view>
+                        <view>
+                            <text>地区</text>
+                            珠海
+                        </view>
+                        <view>
+                            <text>重量</text>
+                            1kg
+                        </view>
+                        <view>
+                            <text>预约时间</text>
+                            8:00-9:00
+                        </view>
+                        <view>
+                            <text>联系人</text>
+                            陈女士
+                        </view>
+                        <view>
+                            <text>电话</text>
+                            13532631276
+                        </view>
+                        <view>
+                            <text>详细地址</text>
+                            <view>广东省珠海市金凤路6号北京理工大学珠海学院</view>
+                        </view>
+                        <view>
+                            <text>订单状态</text>
+                            未接取
+                        </view>
+                        <view class="button_box">
+                            <view class="button">接取订单</view>
+                        </view>
+                    </view>
+                    <!--订单3-->
+                    <view class="order d1">
+                        <view>
+                            <text>订单类型</text>
+                            一键回收
+                        </view>
+                        <view>
+                            <text>地区</text>
+                            珠海
+                        </view>
+                        <view>
+                            <text>重量</text>
+                            1kg
+                        </view>
+                        <view>
+                            <text>预约时间</text>
+                            8:00-9:00
+                        </view>
+                    </view>
+                    <!--订单4-->
+                    <view class="order d2">
+                        <view>
+                            <text>订单类型</text>
+                            一键回收
+                        </view>
+                        <view>
+                            <text>地区</text>
+                            珠海
+                        </view>
+                        <view>
+                            <text>重量</text>
+                            1kg
+                        </view>
+                        <view>
+                            <text>预约时间</text>
+                            8:00-9:00
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        </scroll-view>
+    </block>
+    <!--订单-->
+    <block wx:elif="{{nav[1].isActive}}">
+        <scroll-view scroll-y class="scroll">
+        <view class="order_content">
+            <view class="block">
+                <view class="title_box">
+                    <text class="title">历史订单</text>
+            <!--这个bind应该绑在循环项上-->
+                    <picker class="picker_box" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                        <view class="picker">{{array[index]}}</view>
+                    </picker>
+                </view>
+                <view class="order_box" bindtap="tapUnfold" data-unfold="{{true}}">
+                    <!--订单1-->
+                    <view class="order d1">
+                        <view>
+                            <text>订单类型</text>
+                            一键回收
+                        </view>
+                        <view>
+                            <text>重量</text>
+                            1kg
+                        </view>
+                        <view>
+                            <text>预约时间</text>
+                            8:00-9:00
+                        </view>
+                        <view>
+                            <text>日期</text>
+                            2020/4/18
+                        </view>
+                    </view>
+                    <!--订单2-->
+                    <view class="order d2">
+                        <view>
+                            <text>订单类型</text>
+                            一键回收
+                        </view>
+                        <view>
+                            <text>重量</text>
+                            1kg
+                        </view>
+                        <view>
+                            <text>预约时间</text>
+                            8:00-9:00
+                        </view>
+                        <view>
+                            <text>日期</text>
+                            2020/4/18
+                        </view>
+                        <view>
+                            <text>联系人</text>
+                            陈女士
+                        </view>
+                        <view>
+                            <text>电话</text>
+                            13532631276
+                        </view>
+                        <view>
+                            <text>详细地址</text>
+                            <view>广东省珠海市金凤路6号北京理工大学珠海学院</view>
+                        </view>
+                        <view>
+                            <text>订单状态</text>
+                            交易完成
+                        </view>
+                    </view>
+                    <!--订单3-->
+                    <view class="order d1">
+                        <view>
+                            <text>订单类型</text>
+                            一键回收
+                        </view>
+                        <view>
+                            <text>重量</text>
+                            1kg
+                        </view>
+                        <view>
+                            <text>预约时间</text>
+                            8:00-9:00
+                        </view>
+                        <view>
+                            <text>日期</text>
+                            2020/4/18
+                        </view>
+                    </view>
+                    <!--订单4-->
+                    <view class="order d2">
+                        <view>
+                            <text>订单类型</text>
+                            一键回收
+                        </view>
+                        <view>
+                            <text>重量</text>
+                            1kg
+                        </view>
+                        <view>
+                            <text>预约时间</text>
+                            8:00-9:00
+                        </view>
+                        <view>
+                            <text>日期</text>
+                            2020/4/18
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        </scroll-view>
+    </block>
+    <!--个人-->
+    <block wx:elif="{{nav[2].isActive}}">
+        <scroll-view scroll-y class="scroll">
+            <view class="box box2">
+                <!--信息-->
+                <view class="info_box">
+                    <view class=" title">姓名：</view>
+                    <view><input placeholder="授权给的" /></view>
+                </view>
+                <view class="info_box">
+                    <view class=" title">性别：</view>
+                    <view><input placeholder="授权给的" /></view>
+                </view>
+                <view class="info_box">
+                    <view class=" title">地区：</view>
+                    <view><input placeholder="授权给的" /></view>
+                    <view class="bind_button">修改</view>
+                </view>
+                <view class="info_box">
+                    <view class=" title">电话：</view>
+                    <view><input placeholder="从后台传进来的"/></view>
+                    <view class="bind_button">修改</view>
+                </view>
+            </view>
+            <view class="box box2">
+                <!--订单偏好-->
+                <view class="favor_title">订单偏好设置</view>
+                <view class="box2_1">
+                    <view class="favor_title1">偏好地区</view>
+                    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+                        <view class="picker">
+                            {{region[0]}}，{{region[1]}}，{{region[2]}}
+                        </view>
+                    </picker>
+                </view>
+                <view>
+                    <view class="favor_title1">偏好重量</view>
+                    <checkbox-group bindchange="checkboxChange">
+                        <label class="checkbox" wx:for="{{weight}}">
+                            <checkbox value="{{item.name}}" checked="{{item.checked}}" color="#fbd22c"/>{{item.value}}
+                        </label>
+                    </checkbox-group>
+                </view>
+                <view>
+                    <view class="favor_title1">偏好类型</view>
+                    <checkbox-group bindchange="checkboxChange">
+                        <label class="checkbox" wx:for="{{type}}">
+                            <checkbox value="{{item.name}}" checked="{{item.checked}}" color="#fbd22c"/>{{item.value}}
+                        </label>
+                    </checkbox-group>
+                </view>
+            </view>
+            <!--消息通知-->
+            <navigator class="box box2"  url="../notice2/index">
+                <view class="title">消息通知</view>
+            </navigator>
+        </scroll-view>
+    </block>
+</Nav>

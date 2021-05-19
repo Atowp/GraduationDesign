@@ -1,0 +1,8 @@
+<view class="box">
+    <view class="button">
+        <button class="word" hover-class="none" 
+        open-type="getUserInfo"
+        bindgetuserinfo="login"
+        >登录</button>
+    </view>
+</view>

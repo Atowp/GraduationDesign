@@ -1,0 +1,36 @@
+page {
+  background-color: var(--themeColor);
+}
+.box2 {
+  padding: 23rpx 35rpx;
+}
+.box2 .picker_box {
+  background-color: var(--themeColor);
+  border-radius: 11rpx;
+  padding: 15rpx;
+  color: #fff;
+}
+.box2 textarea {
+  background-color: #f9f9f9;
+  border-radius: 11rpx;
+  width: auto;
+  margin-top: 15rpx;
+  padding: 15rpx;
+}
+.box {
+  margin: 15rpx 15rpx;
+  background-color: #fff;
+  border-radius: 11rpx;
+  font-size: 35rpx;
+  box-shadow: 3rpx 3rpx 10rpx #888;
+}
+.submit {
+  background-color: var(--themeColor);
+  border-radius: 11rpx;
+  margin-top: 15rpx;
+  padding: 15rpx 25rpx;
+  font-size: 40rpx;
+  color: #fff;
+  text-align: center;
+  box-shadow: 3rpx 3rpx 10rpx #888;
+}

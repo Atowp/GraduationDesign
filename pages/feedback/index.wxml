@@ -1,0 +1,15 @@
+<view class="box box2">
+    <form bindsubmit="feedback">
+    <view>
+        <picker name="picker" class="picker_box" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="picker">
+                反馈类型：{{array[index]}}
+            </view>
+        </picker>
+        <textarea name="content" class="feedback" placeholder="在此输入"></textarea> 
+    </view>
+    <view class="button">
+        <button class="submit" formType="submit">提交</button>
+    </view>
+    </form>
+</view>

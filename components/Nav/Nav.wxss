@@ -1,0 +1,27 @@
+.nav {
+  position: fixed;
+  bottom: 2%;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  color: #fff;
+  font-size: 35rpx;
+  font-weight: bold;
+}
+.nav_title {
+  background-color: var(--pickerColor);
+  width: 90%;
+  display: flex;
+  padding: 15rpx 0;
+  border-radius: 33rpx;
+  box-shadow: 5rpx 5rpx 15rpx #888888;
+}
+.title_item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+.active {
+  color: black;
+}

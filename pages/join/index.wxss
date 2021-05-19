@@ -1,0 +1,21 @@
+/* pages/join/index.wxss */
+page {
+  background-color: #000;
+}
+image {
+  width: 100%;
+}
+.container {
+  display: flex;
+}
+.container .public {
+  color: #2e2e2e;
+  background-color: #fbd22c;
+}
+.container .join {
+  flex: 1;
+  margin-right: 10rpx;
+}
+.container .enter {
+  flex: 2;
+}

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "Nav":"../../components/Nav/Nav"
+  },
+  "navigationBarBackgroundColor": "#fbd22c",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "“拾荒者”系统"
+}

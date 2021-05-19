@@ -1,0 +1,4 @@
+<Confirm>
+    <view slot="point">{{point.name}}</view>
+    <view slot="type">电子产品</view>
+</Confirm>
