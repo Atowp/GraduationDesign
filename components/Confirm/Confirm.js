@@ -1,3 +1,5 @@
+import store from "../../utils/store";
+
 Component({
   data: {
     name: [],
@@ -78,6 +80,11 @@ Component({
       this.setData({
         index: e.detail.value
       })
+    },
+
+    submit(){
+      const {} = this.data;
+      wx.$post("/");
     }
-  },
+  }
 })
