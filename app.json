@@ -12,7 +12,6 @@
     "pages/submit/index",
     "pages/pay/index",
     "pages/order_information/index",
-    "pages/apply/index",
     "pages/notice/index",
     "pages/feedback/index",
     "pages/success/index",

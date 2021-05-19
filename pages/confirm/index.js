@@ -53,7 +53,9 @@ Page({
 
     index: 0,
 
-    region: ['广东省','珠海市', '香洲区']
+    region: ['广东省','珠海市', '香洲区'],
+
+    type: ""
   },
   inputValue(e){
     this.setData({
@@ -103,7 +105,9 @@ Page({
     this.setData({
       type, 
       detail: detail && JSON.parse(detail)
-    })
+    }),
+    console.log(type);
+    console.log(detail);
   },
 
   /**
@@ -118,7 +122,7 @@ Page({
    */
   onShow: function () {
     const location = chooseLocation.getLocation();
-    console.log(location);
+    //console.log(location);
     this.setData({
       point: location
     });

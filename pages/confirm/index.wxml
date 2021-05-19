@@ -33,7 +33,9 @@
         <input placeholder="请输入11位电话号码" value="{{phone}}"/>
         </view>
         <view class="info_text"><view class="info_title">订单类型</view>
+        <view class="info_text">
             {{type}} {{detail}}
+        </view>
         </view>
         <view>
             <view class="info_title">需要回收的物品千克数</view>
