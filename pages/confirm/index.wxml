@@ -1,20 +1,45 @@
 <view class="box">
-    <view class="locate_box" bindtap="selectPoint">
+    <block wx:if="{{!hasLocation}}">
+        <view class="locate_box" bindtap="selectPoint">
         <image class="locate_icon" src="../../images/icon/location.png"></image>
         <view class="locate_text">获取当前位置信息</view>
+        </view>
+    </block>
+    <block wx:else>
+    <view class="info_box" bindtap="selectPoint">
+        <view class="info_title">地址</view>
+        <!--<slot name="point"></slot>-->
+        <view name="point">{{point.name}}</view>
     </view>
+    </block>
 </view>
+<form>
 <view class="box">
     <view class="info_box">
-        <view class="info_title">信息核对</view>
-        <view class="info_text">陈女士 13532631276</view>
+        <view class="info_title">地区</view>
+        <view class="info_text">
+            <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+                <view>
+                所在地区：{{region[1]}}{{region[2]}}
+                </view>
+            </picker>
+        </view>
+        <view class="info_title">联系人</view>
+        <view class="info_text">
+        <input placeholder="陈女士"/>
+        </view>
+        <view class="info_title">联系电话</view>
+        <view class="info_text">
+        <input placeholder="11位有效数字"/>
+        </view>
         <view class="info_text"><view class="info_title">订单类型</view>
-            {{type}} {{detail}}
+        <!--<slot name="type"></slot>-->
+        <!--订单类型这里需要传参-->
         </view>
         <view>
             <view class="info_title">需要回收的物品千克数</view>
             <view class="item2 info_text">
-                <input auto-focus placeholder="输入" type="number"
+                <input placeholder="输入" type="number"
                        bindinput="inputValue"/>已输入{{inputValue}}千克
             </view>
         </view>
@@ -33,8 +58,9 @@
         <textarea placeholder="备注"></textarea>
     </view>
 </view>
-<navigator class="box" url="">
-    <view class="submit">
+<view class="box" bindtap="submit">
+    <button class="submit" formType="submit">
         提交
-    </view>
-</navigator>
+    </button>
+</view>
+</form>

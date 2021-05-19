@@ -1,3 +1,5 @@
+const chooseLocation = requirePlugin('chooseLocation');
+
 Page({
 
   /**
@@ -8,8 +10,9 @@ Page({
     address: [],
     latitude: [],
     longitude: [],
-    detail: [],
-    type: "",
+    hasLocation: false,
+    point: ['珠海市', '香洲区'],
+
     inputValue: 0,
 
     array: [
@@ -46,7 +49,10 @@ Page({
         name: '16:00-17:00'
       }
     ],
-    index: 0
+
+    index: 0,
+
+    region: []
   },
   inputValue(e){
     this.setData({
@@ -57,18 +63,36 @@ Page({
     const key = 'JJMBZ-Q52CF-PCRJ4-NDBGH-DCTC6-JKBRD'; //使用在腾讯位置服务申请的key
     const referer = '句芒上门回收'; //调用插件的app的名称
     const location = JSON.stringify({
-    latitude: 39.89631551,
-    longitude: 116.323459711
+      latitude: 39.89631551,
+      longitude: 116.323459711
     });
     wx.navigateTo({
-    url: `plugin://chooseLocation/index?key=${key}&referer=${referer}&location=${location}`
+    url: `plugin://chooseLocation/index?key=${key}&referer=${referer}&location=${location}`,
+    success: (res) => {
+      this.setData({
+        hasLocation: true
+      })
+    }
     });
   },
+
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       index: e.detail.value
     })
+  },
+
+  bindRegionChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      region: e.detail.value
+    })
+  },
+
+  submit(){
+    const {} = this.data;
+    wx.$post("/");
   },
   /**
    * 生命周期函数--监听页面加载
@@ -81,18 +105,18 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    const {type, detail} = this.options;
-    this.setData({
-      type, 
-      detail: JSON.parse(detail)
-    })
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    const location = chooseLocation.getLocation();
+    console.log(location);
+    this.setData({
+      point: location
+    });
   },
 
   /**
