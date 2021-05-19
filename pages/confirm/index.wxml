@@ -56,17 +56,14 @@
 </view>
 <view class="box">
     <view class="remark_box">
-        <textarea placeholder="详细地址" value="{{address}}"></textarea>
-    </view>
-</view>
-<view class="box">
-    <view class="remark_box">
         <textarea placeholder="备注" value="{{remark}}"></textarea>
     </view>
 </view>
 <view class="box" bindtap="submit">
-    <button class="submit" formType="submit">
-        提交
-    </button>
+    <navigator url="../success/index">
+        <button class="submit" formType="submit">
+            提交
+        </button>
+    </navigator>
 </view>
 </form>

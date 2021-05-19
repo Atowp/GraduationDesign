@@ -1,4 +1,0 @@
-<Confirm>
-    <view slot="point">{{point.name}}</view>
-    <view slot="type">大件家具</view>
-</Confirm>

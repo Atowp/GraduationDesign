@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "SearchInput":"../../components/SearchInput/SearchInput"
-  },
-  "navigationBarTitleText": "有害垃圾"
-}

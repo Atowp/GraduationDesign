@@ -1,1 +1,17 @@
-/* pages/success/index.wxss */
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30rem;
+  flex-direction: column;
+}
+.icon {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text {
+  margin-top: 30rpx;
+  font-size: 35rpx;
+}

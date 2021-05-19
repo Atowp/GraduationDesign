@@ -33,7 +33,7 @@
         wx:for="{{navigate2List}}"
         wx:key="name"
         >
-        <image mode="widthFix" src="{{item.image_src}}" bindtap="dispatchN2" data-key="{{item.key}}"/>
+        <image mode="widthFix" src="{{item.image_src}}" bindtap="dispatchN2" data-item="{{item}}"/>
         </view>
     </view>
     <!--一键回收-->

@@ -1,4 +1,0 @@
-<Confirm>
-    <view slot="point" name="point">{{point.name}}</view>
-    <view slot="type" name="type">一键回收</view>
-</Confirm>

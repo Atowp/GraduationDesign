@@ -94,8 +94,10 @@ Page({
   },
 
   submit(){
-    const {concat, phone, time, date, region, address} = this.data;
-    console.log(concat, phone, time, date, region, address, 'concat, phone, time, date, region, address')
+    const {concat, phone, region, remark} = this.data;
+    wx.$post('/user/order', {
+      concat, phone, region, remark
+    })
   },
   /**
    * 生命周期函数--监听页面加载

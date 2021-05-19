@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "Confirm":"../../components/Confirm/Confirm"
-  },
-  "navigationBarTitleText": "确认订单"
-}
