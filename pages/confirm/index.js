@@ -6,14 +6,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name: [],
-    address: [],
+    concat: "AG",
+    phone: "18718518397",
+    address: "详细地址",
     latitude: [],
     longitude: [],
+    detail: [],
+    type: "",
     hasLocation: false,
-    point: ['珠海市', '香洲区'],
-
-    inputValue: 0,
+    weight: 0,
 
     array: [
       '8:00-9:00', '9:00-10:00', '10:00-11:00','11:00-12:00',
@@ -79,7 +80,7 @@ Page({
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      index: e.detail.value
+      time: e.detail.value
     })
   },
 
@@ -91,14 +92,18 @@ Page({
   },
 
   submit(){
-    const {} = this.data;
-    wx.$post("/");
+    const {concat, phone, time, date, region, address} = this.data;
+    console.log(concat, phone, time, date, region, address, 'concat, phone, time, date, region, address')
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    const {type, detail} = this.options;
+    this.setData({
+      type, 
+      detail: detail && JSON.parse(detail)
+    })
   },
 
   /**
