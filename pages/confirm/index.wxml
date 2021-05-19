@@ -26,21 +26,20 @@
         </view>
         <view class="info_title">联系人</view>
         <view class="info_text">
-        <input placeholder="陈女士"/>
+        <input placeholder="请输入联系人" value="{{concat}}"/>
         </view>
         <view class="info_title">联系电话</view>
         <view class="info_text">
-        <input placeholder="11位有效数字"/>
+        <input placeholder="请输入11位电话号码" value="{{phone}}"/>
         </view>
         <view class="info_text"><view class="info_title">订单类型</view>
-        <!--<slot name="type"></slot>-->
-        <!--订单类型这里需要传参-->
+            {{type}} {{detail}}
         </view>
         <view>
             <view class="info_title">需要回收的物品千克数</view>
             <view class="item2 info_text">
                 <input placeholder="输入" type="number"
-                       bindinput="inputValue"/>已输入{{inputValue}}千克
+                       bindinput="inputValue"/>已输入{{weight}}千克
             </view>
         </view>
         <view class="info_title">选择的上门服务时间</view>
@@ -55,7 +54,12 @@
 </view>
 <view class="box">
     <view class="remark_box">
-        <textarea placeholder="备注"></textarea>
+        <textarea placeholder="详细地址" value="{{address}}"></textarea>
+    </view>
+</view>
+<view class="box">
+    <view class="remark_box">
+        <textarea placeholder="备注" value="{{remark}}"></textarea>
     </view>
 </view>
 <view class="box" bindtap="submit">

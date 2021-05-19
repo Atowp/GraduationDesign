@@ -21,11 +21,11 @@
         </view>
         <view class="info_title">联系人</view>
         <view class="info_text">
-        <input placeholder="陈女士"/>
+        <input placeholder="请输入联系人"/>
         </view>
         <view class="info_title">联系电话</view>
         <view class="info_text">
-        <input placeholder="11位有效数字"/>
+        <input placeholder="请输入电话号码"/>
         </view>
         <view class="info_text"><view class="info_title">订单类型</view><slot name="type"></slot></view>
         <view>
@@ -51,7 +51,7 @@
     </view>
 </view>
 <view class="box" bindtap="submit">
-    <button class="submit" formType="submit">
+    <button class="submit">
         提交
     </button>
 </view>

@@ -9,19 +9,19 @@ Page({
         name: "电子产品",
         image_src:
           "https://prl.yuyisoft.net/images/%E7%94%B5%E5%AD%90%E4%BA%A7%E5%93%81.png",
-        url: "/pages/confirm/index?type='电子产品'",
+        url: "/pages/confirm/index?type=电子产品",
       },
       {
         name: "大件家具",
         image_src:
           "https://prl.yuyisoft.net/images/%E5%A4%A7%E4%BB%B6%E5%AE%B6%E5%85%B7.png",
-        url: "/pages/confirm/index?type='大件家具'",
+        url: "/pages/confirm/index?type=大件家具",
       },
       {
         name: "书籍杂志",
         image_src:
           "https://prl.yuyisoft.net/images/%E4%B9%A6%E7%B1%8D%E6%9D%82%E5%BF%97.png",
-        url: "/pages/confirm/index?type='书籍杂志'",
+        url: "/pages/confirm/index?type=书籍杂志",
       },
       {
         name: "分类科普",
@@ -64,7 +64,6 @@ Page({
 
   onLoad: function (options) {
     this.getSwiperList();
-    this.getNavigateList();
   },
   //发送异步请求获取轮播图数据
   getSwiperList() {
@@ -90,10 +89,9 @@ Page({
     });
   },
   dispatchN(e) {
-    //e = item.url
+    const url = e.currentTarget.dataset;
     wx.navigateTo({
       url: e.currentTarget.dataset.url, //url = data-url的url
-      //e.currentTarget.dataset.url = item.url
     });
   },
   //获取导航2数据
