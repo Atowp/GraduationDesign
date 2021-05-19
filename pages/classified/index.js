@@ -14,6 +14,7 @@ Page({
     allId: [],
     num: 0,
     key: "harmful",
+    type: "",
     selected: [],
     dict: {
       harmful: {
@@ -39,6 +40,7 @@ Page({
 
   onLoad: function (options) {
     this.data.key = options.key ? options.key : this.data.key;
+    this.data.type = options.type ? options.type : this.data.type;
     this.getClassified();
     this.setData({
       selected: new Set(),
@@ -70,7 +72,7 @@ Page({
   handleClass() {
     const params = JSON.stringify([...this.data.selected]);
     wx.navigateTo({
-      url: '/pages/confirm/index?detail='+params,
+      url: `/pages/confirm/index?type=${this.data.type}&detail=${params}`,
     })
   },
   getSelected(e) {

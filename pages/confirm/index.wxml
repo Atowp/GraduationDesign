@@ -54,11 +54,6 @@
 </view>
 <view class="box">
     <view class="remark_box">
-        <textarea placeholder="详细地址" value="{{address}}"></textarea>
-    </view>
-</view>
-<view class="box">
-    <view class="remark_box">
         <textarea placeholder="备注" value="{{remark}}"></textarea>
     </view>
 </view>

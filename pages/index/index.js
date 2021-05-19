@@ -103,9 +103,10 @@ Page({
     });
   },
   dispatchN2(e) {
-    const key = e.currentTarget.dataset.key;
+    const item = e.currentTarget.dataset.item;
+    console.log(item);
     wx.navigateTo({
-      url: `/pages/classified/index?key=${key}`,
+      url: `/pages/classified/index?type=${item.name}&key=${item.key}`,
     });
   },
   onReady: function () {},
