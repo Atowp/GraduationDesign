@@ -13,7 +13,8 @@ Page({
     currentIndex: 0,
     //选中的id
     allId: [],
-    num: 0
+    num: 0,
+
   },
   //接口的返回数据
   Classification: [],
@@ -24,7 +25,7 @@ Page({
   
   getClassified: function (){
     request({
-      url: "/other_garbage.json"
+      url: ""
     }).then(res => {
       this.Classification = res.data.message;
 

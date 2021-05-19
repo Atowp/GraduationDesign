@@ -8,7 +8,9 @@
     <view class="info_box">
         <view class="info_title">信息核对</view>
         <view class="info_text">陈女士 13532631276</view>
-        <view class="info_text"><view class="info_title">订单类型</view>可回收物</view>
+        <view class="info_text"><view class="info_title">订单类型</view>
+            {{type}} {{detail}}
+        </view>
         <view>
             <view class="info_title">需要回收的物品千克数</view>
             <view class="item2 info_text">

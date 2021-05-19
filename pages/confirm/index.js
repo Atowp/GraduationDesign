@@ -8,7 +8,8 @@ Page({
     address: [],
     latitude: [],
     longitude: [],
-
+    detail: [],
+    type: "",
     inputValue: 0,
 
     array: [
@@ -73,14 +74,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    const {type, detail} = this.options;
+    this.setData({
+      type, 
+      detail: JSON.parse(detail)
+    })
   },
 
   /**
