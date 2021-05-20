@@ -4,55 +4,66 @@
     <SearchInput></SearchInput>
     <!--订单-->
     <view class="order_content">
+        <!--进行部分-->
         <view class="block">
             <text class="title">进行中的订单</text>
             <view class="order_box">
-                <!--接取的订单-->
+                <!--进行中的订单-->
+                <block wx: if="{{status_index === 0 || status_index === 1}}">
                 <view class="order dd fold">
                     <view data-index="1" catchtap='panel'>
                     <view>
                         <text>订单类型</text>
-                        可回收物
+                        {{item.type}}
                     </view>
                     <view>
                         <text>重量</text>
-                        1kg
+                        {{item.weight}}kg
                     </view>
                     <view>
                         <text>预约时间</text>
-                        8:00-9:00
+                        {{item.time}}
                     </view>
                     </view>
                     <!--折叠展开分割线-->
                     <view class="unfold" wx:if="{{showIndex == 1}}"  data-index="0" catchtap='panel'>
+                    <block wx: if="{{item.detail}} !== ''">
                     <view>
                         <text>详细内容</text>
-                        <view>报纸，玻璃瓶，衣服</view>
+                        {{item.detail}}
                     </view>
+                    </block>
+                    <block wx: else></block>
                     <view>
                         <text>联系人</text>
-                        陈女士
+                        {{item.contact}}
                     </view>
                     <view>
                         <text>电话</text>
-                        13532631276
+                        {{item.phone}}
                     </view>
                     <view>
                         <text>详细地址</text>
-                        <view>广东省珠海市金凤路6号北京理工大学珠海学院</view>
+                        {{item.address}}
                     </view>
                     <view>
                         <text>订单状态</text>
-                        进行中
+                        {{status[status_index]}}
                     </view>
                     <view class="button_box cancel" catchtap="cancel">
                         <view class="button">取消订单</view>
                     </view>
                     </view>
-                    <!--折叠展开分割线-->
+                    <!--分割线end-->
                 </view>
+                </block>
+                <!--wx if判断前面有空格elif和else也要跟空格不然报错-->
+                <block wx: elif="{{status_index !== 2 && status_index !== -1}}"></block>
+                <!--进行中end-->
             </view>
         </view>
+        <!--进行end-->
+        <!--历史部分-->
         <view class="block">
             <view class="title_box">
             <text class="title">历史订单</text>
@@ -60,105 +71,60 @@
                 <picker class="picker_box" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
                     <view class="picker">{{array[index]}}</view>
                 </picker>
+            <!--筛选end-->
             </view>
+            <!--历史订单-->
+            <block wx: if="{{status_index === 2 || status_index === -1}}">
             <view class="order_box">
-                <!--订单1-->
-                <view class="order d1">
-                    <view>
-                        <text>订单类型</text>
-                        一键回收
-                    </view>
-                    <view>
-                        <text>重量</text>
-                        1kg
-                    </view>
-                    <view>
-                        <text>预约时间</text>
-                        8:00-9:00
-                    </view>
-                    <view>
-                        <text>日期</text>
-                        2020/4/20
-                    </view>
-                </view>
                 <!--订单2-->
-                <view class="order d2">
-                    <view data-index="2" catchtap='panel'>
+                <view class="order d1">
+                    <view data-index="2" catchtap='panel'
+                    wx: for="{{orderList}}"
+                    wx: for-item="item"
+                    wx: key="openId"
+                    bindtap="getOrderList"
+                    >
                     <view>
                         <text>订单类型</text>
-                        一键回收
+                        {{item.type}}
                     </view>
                     <view>
                         <text>重量</text>
-                        1kg
+                        {{item.weight}}kg
                     </view>
                     <view>
                         <text>预约时间</text>
-                        8:00-9:00
+                        {{item.time}}
                     </view>
                     <view>
                         <text>日期</text>
-                        2020/4/20
+                        {{item.date}}
                     </view>
                     </view>
                     <view class="unfold" wx:if="{{showIndex == 2}}"  data-index="0" catchtap='panel'>
                     <view>
                         <text>联系人</text>
-                        陈女士
+                        {{item.contact}}
                     </view>
                     <view>
                         <text>电话</text>
-                        13532631276
+                        {{item.phone}}
                     </view>
                     <view>
                         <text>详细地址</text>
-                        <view>广东省珠海市金凤路6号北京理工大学珠海学院</view>
+                        {{item.address}}
                     </view>
                     <view>
                         <text>订单状态</text>
-                        交易完成
+                        {{status[status_index]}}
                     </view>
-                    </view>
-                </view>
-                <!--订单3-->
-                <view class="order d1">
-                    <view>
-                        <text>订单类型</text>
-                        一键回收
-                    </view>
-                    <view>
-                        <text>重量</text>
-                        1kg
-                    </view>
-                    <view>
-                        <text>预约时间</text>
-                        8:00-9:00
-                    </view>
-                    <view>
-                        <text>日期</text>
-                        2020/4/20
-                    </view>
-                </view>
-                <!--订单4-->
-                <view class="order d2">
-                    <view>
-                        <text>订单类型</text>
-                        一键回收
-                    </view>
-                    <view>
-                        <text>重量</text>
-                        1kg
-                    </view>
-                    <view>
-                        <text>预约时间</text>
-                        8:00-9:00
-                    </view>
-                    <view>
-                        <text>日期</text>
-                        2020/4/20
                     </view>
                 </view>
             </view>
+            </block>
+            <block wx: elif="{{status_index !== 0 && status_index !== 1}}"></block>
+            <!--历史end-->
         </view>
+        <!--历史部分-->
     </view>
 </view>

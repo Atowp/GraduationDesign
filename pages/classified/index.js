@@ -46,6 +46,7 @@ Page({
       selected: new Set(),
     });
   },
+  //菜单数据
   getClassified() {
     const url = this.data.dict[this.data.key].url;
     request({
@@ -61,6 +62,7 @@ Page({
       });
     });
   },
+  //左侧菜单选中状态
   handleItemTap(e) {
     const { index } = e.currentTarget.dataset;
     let rightContent = this.Classification[index].children;
@@ -69,12 +71,14 @@ Page({
       rightContent,
     });
   },
+  //传参
   handleClass() {
     const params = JSON.stringify([...this.data.selected]);
     wx.navigateTo({
       url: `/pages/confirm/index?type=${this.data.type}&detail=${params}`,
     })
   },
+  //选中状态
   getSelected(e) {
     const { id } = e.currentTarget.dataset; //101,102,103,...
     const picked = e.currentTarget.dataset.picked;
@@ -93,7 +97,7 @@ Page({
       num: allId.length,
       allId,
     });
-    /** 操作本地视图 */
+    // 操作本地视图 
     const currentRightContent = rightContent.find(
       (item) => +item.class_id === +id
     );
