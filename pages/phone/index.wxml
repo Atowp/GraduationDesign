@@ -1,2 +1,6 @@
-<!--pages/phone/index.wxml-->
-<text>pages/phone/index.wxml</text>
+<view class="box">
+    <view class="in-box">
+        <input placeholder="{{phone}}" class="item"/>
+        <view class="item button" bindtap="revise" data-test="{{1}}">修改</view>
+    </view>
+</view>

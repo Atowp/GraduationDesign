@@ -13,8 +13,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/recycle_classified/index",
-          "pathName": "pages/recycle_classified/index",
+          "name": "pages/join/index",
+          "pathName": "pages/join/index",
           "query": "",
           "scene": null
         },
@@ -37,8 +37,8 @@
           "scene": null
         },
         {
-          "name": "pages/success/index",
-          "pathName": "pages/success/index",
+          "name": "pages/phone/index",
+          "pathName": "pages/phone/index",
           "query": "",
           "scene": null
         },

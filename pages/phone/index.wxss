@@ -1,1 +1,33 @@
-/* pages/phone/index.wxss */
+page {
+  background-color: var(--themeColor);
+}
+.box {
+  background-color: #fff;
+  margin: 15rpx 15rpx;
+  border-radius: 11rpx;
+  font-size: 35rpx;
+  box-shadow: 3rpx 3rpx 10rpx #888;
+  display: flex;
+  align-items: center;
+  padding: 10rpx;
+}
+.box .in-box {
+  width: 100%;
+}
+.box .in-box input {
+  background-color: #f9f9f9;
+  text-align: center;
+  font-size: 35rpx;
+  padding: 10rpx;
+  border-radius: 11rpx;
+}
+.box .in-box .item {
+  margin: 5rpx;
+}
+.box .in-box .button {
+  background-color: var(--themeColor);
+  color: #fff;
+  padding: 5rpx 20rpx;
+  border-radius: 11rpx;
+  text-align: center;
+}

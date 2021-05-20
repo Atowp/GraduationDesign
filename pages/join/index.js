@@ -7,6 +7,36 @@ Page({
   data: {
 
   },
+  join (e) {
+    const test = e.currentTarget.dataset.test;//test
+    //console.log(test);
+    if(test === 0){//判断有无拾荒者身份
+      wx.navigateTo({
+        url: '../staff-login/index'
+      });
+    }else{
+      wx.showToast({
+        title: '已有拾荒者权限',
+        icon: 'error',
+        duration: 2000
+      })
+    }
+  },
+  enter (e) {
+    const test2 = e.currentTarget.dataset.test2;
+    console.log(test2);
+    if(test2 === 1){//判断有无拾荒者身份
+      wx.reLaunch({
+        url: '../picker_index/picker_index'
+      });
+    }else{
+      wx.showToast({
+        title: '您无拾荒者权限',
+        icon: 'error',
+        duration: 2000
+      })
+    }
+  },
 
   /**
    * 生命周期函数--监听页面加载

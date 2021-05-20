@@ -52,6 +52,10 @@ page {
   background-color: #fff;
   color: var(--themeColor);
 }
+.order_box .delete {
+  background-color: #fff;
+  color: red;
+}
 .title_box {
   display: flex;
 }

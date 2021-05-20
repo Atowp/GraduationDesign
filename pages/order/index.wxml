@@ -11,7 +11,12 @@
                 <!--进行中的订单-->
                 <block wx: if="{{status_index === 0 || status_index === 1}}">
                 <view class="order dd fold">
-                    <view data-index="1" catchtap='panel'>
+                    <view data-index="1" catchtap='panel'
+                    wx: for="{{orderList}}"
+                    wx: for-item="item"
+                    wx: key="openId"
+                    bindtap="getOrderList"
+                    >
                     <view>
                         <text>订单类型</text>
                         {{item.type}}
@@ -68,7 +73,7 @@
             <view class="title_box">
             <text class="title">历史订单</text>
             <!--这个bind应该绑在循环项上-->
-                <picker class="picker_box" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <picker bindchange="bindPickerChange" class="picker_box" value="{{index}}" range="{{array}}">
                     <view class="picker">{{array[index]}}</view>
                 </picker>
             <!--筛选end-->
@@ -76,7 +81,7 @@
             <!--历史订单-->
             <block wx: if="{{status_index === 2 || status_index === -1}}">
             <view class="order_box">
-                <!--订单2-->
+                <!--订单-->
                 <view class="order d1">
                     <view data-index="2" catchtap='panel'
                     wx: for="{{orderList}}"
@@ -118,6 +123,13 @@
                         <text>订单状态</text>
                         {{status[status_index]}}
                     </view>
+                    <!--只有失败的订单可以删除-->
+                    <block wx: if="{{status_index === -1}}">
+                    <view class="button_box delete" catchtap="delete">
+                        <view class="button">删除订单</view>
+                    </view>
+                    </block>
+                    <block wx: else></block>
                     </view>
                 </view>
             </view>

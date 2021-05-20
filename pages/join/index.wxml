@@ -1,5 +1,13 @@
 <image mode="widthFix" src="../../images/pic/becomePicker.jpg"></image>
 <view class="container">
-    <navigator class="public join" url="../staff-login/index">加入我们</navigator>
-    <navigator class="public enter" url="../picker_index/picker_index" open-type="reLaunch">进入拾荒者子系统</navigator>
+    <view class="public join"
+    bindtap="join"
+    data-test="{{0}}">
+    加入我们
+    </view>
+    <view class="public enter"
+    bindtap="enter"
+    data-test2="{{1}}">
+    进入拾荒者子系统
+    </view>
 </view>

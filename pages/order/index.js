@@ -100,6 +100,9 @@ Page({
       }
     })
   },
+  delete: function () {
+    
+  },
   //获取订单数据
   async getOrderList(e){
     const orderList  = await wx.$get("/user/order");//还不晓得长啥样

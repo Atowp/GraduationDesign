@@ -3,7 +3,7 @@
     <!--首页-->
     <block wx:if="{{nav[0].isActive}}" class="block1">
         <scroll-view scroll-y class="scroll">
-        <view class="top">欢迎回来，Atowp</view>
+        <view class="top">欢迎回来，{{Atowp}}</view>
         <view class="order_content">
             <view class="block">
                 <text class="title">已接取的订单</text>
