@@ -9,9 +9,9 @@
             <text class="title">进行中的订单</text>
             <view class="order_box">
                 <!--进行中的订单-->
-                <block wx: if="{{status_index === 0 || status_index === 1}}">
-                <view class="order dd fold" wx:for="{{orderList}}">
-                    <view catchtap='panel'>
+                <block wx: if="{{status_index === 0 || status_index === 1}}" wx:for="{{orderList}}">
+                <view class="order dd fold">
+                    <view data-index="1" catchtap='panel'>
                     <view>
                         <text>订单类型</text>
                         {{item.type}}
@@ -57,7 +57,7 @@
                     <!--分割线end-->
                 </view>
                 </block>
-                <!--wx if判断前面有空格elif和else也要跟空格不然报错-->
+                <!--wx if薛定谔的空格-->
                 <block wx: elif="{{status_index !== 2 && status_index !== -1}}"></block>
                 <!--进行中end-->
             </view>
@@ -79,9 +79,8 @@
                 <!--订单-->
                 <view class="order d1" wx:for="{{orderList}}">
                     <view data-index="2" catchtap='panel'
-                    
                     wx:for-item="item"
-                    wx: key="openId"
+                    wx:key="openId"
                     bindtap="getOrderList"
                     >
                     <view>
@@ -129,6 +128,7 @@
                 </view>
             </view>
             </block>
+            <!--注意elif-->
             <block wx: elif="{{status_index !== 0 && status_index !== 1}}"></block>
             <!--历史end-->
         </view>

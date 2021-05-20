@@ -5,16 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    contact: "AG",
-    phone: "18718518397",
-    address: "",
     latitude: [],
     longitude: [],
+    hasLocation: false,
+    point: "",
+    //address: "",
+
+    contact: "",
+    phone: "",
     detail: [],
     type: "",
-    hasLocation: false,
-    weight: 1,
-    remark: "备注信息",
+    weight: 0,
+    remark: "",
+    status: 0,
     array: [
       "8:00-9:00",
       "9:00-10:00",
@@ -57,11 +60,11 @@ Page({
     index: 0,
     type: "",
   },
-  inputValue(e) {
-    this.setData({
-      weight: e.detail.value,
-    });
-  },
+  //inputValue(e) {
+  //  this.setData({
+  //    weight: e.detail.value,
+  //  });
+  //},
   selectPoint() {
     const key = "JJMBZ-Q52CF-PCRJ4-NDBGH-DCTC6-JKBRD"; //使用在腾讯位置服务申请的key
     const referer = "句芒上门回收"; //调用插件的app的名称
@@ -86,41 +89,74 @@ Page({
     });
   },
 
-  bindRegionChange: function (e) {
-    console.log("picker发送选择改变，携带值为", e.detail.value);
-    this.setData({
-      region: e.detail.value,
-    });
-  },
+  //bindRegionChange: function (e) {
+  // console.log("picker发送选择改变，携带值为", e.detail.value);
+  //  this.setData({
+  //    region: e.detail.value,
+  //  });
+  //},
 
-  onChange(e) {
-    this.setData({
-      [e.currentTarget.dataset.prop]: e.detail.value,
-    });
-  },
-  submit() {
-    const {
-      contact,
-      phone,
-      remark,
-      detail,
-      type,
-      weight,
-      array,
-      point,
-      index,
-    } = this.data;
+  submit (e) {
+    let date = new Date().toLocaleDateString();
+    const {contact,phone,weight} = e.detail.value;
+    const {point,type,detail,array,index,remark,status} = this.data;
     const address = point && point.address + point.name;
-    wx.$post("/user/order", {
-      contact,
-      phone,
-      address,
-      remark,
-      detail,
-      type,
-      weight,
-      time: array[index],
-    });
+    //console.log(address);
+    //console.log(phone);
+    //console.log(weight);
+    //const address = point && point.address + point.name;
+    //wx.$post("/user/order", {
+    //  contact,
+    //  phone,
+    //  address,
+    //  remark,
+    //  detail,
+    //  type,
+    //  weight,
+    //  time: array[index],
+    //  date
+    //});
+    if(address == null){
+      wx.showToast({
+        title: '地址必填',
+        icon: 'error',
+        duration: 2000
+      })
+    }else if(contact <= 0){
+      wx.showToast({
+        title: '联系人必填',
+        icon: 'error',
+        duration: 2000
+      })
+    }else if(phone <= 0){
+      wx.showToast({
+        title: '手机号必填',
+        icon: 'error',
+        duration: 2000
+      })
+    }else if(weight <= 0){
+      wx.showToast({
+        title: '千克数必填',
+        icon: 'error',
+        duration: 2000
+      })
+    }else{
+      wx.$post("/user/order",{
+        address,
+        contact,
+        phone,
+        type,
+        detail,
+        weight,
+        time: array[index],
+        date,
+        remark,
+        status
+      });
+      wx.navigateTo({
+        url: "../success/index"
+      });
+    }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -130,9 +166,9 @@ Page({
     this.setData({
       type,
       detail: detail && JSON.parse(detail),
-    }),
-      console.log(type);
-    console.log(detail);
+    })
+    //  console.log(type);
+    //console.log(detail);
   },
 
   /**

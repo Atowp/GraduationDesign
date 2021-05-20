@@ -38,7 +38,7 @@
     </view>
     <!--一键回收-->
     <text class="text_nav">一键回收</text>
-    <navigator url="../recycle/index">
+    <navigator url="../confirm/index?type=一键回收&key='recycle'">
     <button class="recycle">
         一 键 回 收
     </button>

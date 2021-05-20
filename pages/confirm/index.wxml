@@ -13,7 +13,7 @@
     </view>
     </block>
 </view>
-<form>
+<form bindsubmit="submit">
 <view class="box">
     <view class="info_box">
         <!-- <view class="info_title">地区</view>
@@ -26,11 +26,11 @@
         </view> -->
         <view class="info_title">联系人</view>
         <view class="info_text">
-        <input placeholder="请输入联系人" value="{{contact}}"/>
+        <input placeholder="姓名" name="contact"/>
         </view>
         <view class="info_title">联系电话</view>
         <view class="info_text">
-        <input placeholder="请输入11位电话号码" value="{{phone}}"/>
+        <input placeholder="有效数字" name="phone"/>
         </view>
         <view class="info_text"><view class="info_title">订单类型</view>
         <view class="info_text">
@@ -40,7 +40,7 @@
         <view>
             <view class="info_title">需要回收的物品千克数</view>
             <view class="item2 info_text">
-                <input placeholder="重量" type="number" value="{{weight}}" />千克(kg)
+                <input placeholder="重量" type="number" name="weight"/>千克(kg)
             </view>
         </view>
         <view class="info_title">选择的上门服务时间</view>
@@ -55,14 +55,14 @@
 </view>
 <view class="box">
     <view class="remark_box">
-        <textarea placeholder="备注" value="{{remark}}"></textarea>
+        <textarea placeholder="备注"></textarea>
     </view>
 </view>
-<view class="box" bindtap="submit">
-    <navigator url="../success/index">
+<view class="box">
+    <!--<navigator url="../success/index">-->
         <button class="submit" formType="submit">
             提交
         </button>
-    </navigator>
+    <!--</navigator>-->
 </view>
 </form>

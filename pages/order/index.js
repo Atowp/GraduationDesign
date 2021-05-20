@@ -34,18 +34,19 @@ Page({
     showIndex: 0,
     //订单信息
     orderList: [],
-    //contact: "",//联系人
-    //phone: 0,//电话（number）
-    //time: "",//预约的时间
-    //type: "",//回收类型
-    //detail: [],//详细类型
-    //weight: 0,//千克数
-    //date: "",//日期
-    //address: "",//地址
-    //remark: "",//备注
-    //openId: "",//下单的用户唯一标识
-    //takeBy: "",//接单的拾荒者标识
-    //status: 0,//订单状态，0未接取，1已接取，2成功，-1失败
+    //_id: ""订单号
+    //contact: "" 联系人
+    //phone: 0 电话（number）
+    //time: "" 预约时间
+    //type: "" 回收类型
+    //detail: [] 详细类型
+    //weight: 0 千克数
+    //date: "" 日期
+    //address: "" 地址
+    //remark: "" 备注
+    //openId/createdBy: "" 下单的用户唯一标识
+    //takeBy: "" 接单的拾荒者标识
+    //status: 0 订单状态，0未接取，1已接取，2成功，-1失败
 
     //状态！
     status: [
@@ -105,10 +106,10 @@ Page({
   },
   //获取订单数据
   async getOrderList(e){
-    const orderList  = await wx.$get("/user/order");//还不晓得长啥样
+    const orderList  = await wx.$get("/user/order");//详情看上
     console.log('orderList', orderList)
     this.setData({
-      orderList,
+      orderList
     })
   },
   /**

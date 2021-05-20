@@ -1,6 +1,10 @@
 <view class="box">
     <view class="in-box">
-        <input placeholder="{{phone}}" class="item"/>
-        <view class="item button" bindtap="revise" data-test="{{1}}">修改</view>
+        <form bindsubmit="revise">
+            <input placeholder="{{phone}}" class="item"/>
+            <button class="item button" formType="submit"
+            style="height: 60rpx;text-align: center;font-size: 35rpx;line-height: 60rpx">
+            修改</button>
+        </form>
     </view>
 </view>

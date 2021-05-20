@@ -22,7 +22,9 @@ Page({
           console.log('登录失败！' + res.errMsg)
         }
       }
-    })
+    });
+    let date = new Date();
+    console.log(date.toLocaleDateString())
   },
   /**
    * 生命周期函数--监听页面加载

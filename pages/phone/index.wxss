@@ -20,6 +20,7 @@ page {
   font-size: 35rpx;
   padding: 10rpx;
   border-radius: 11rpx;
+  height: 50rpx;
 }
 .box .in-box .item {
   margin: 5rpx;
@@ -27,7 +28,5 @@ page {
 .box .in-box .button {
   background-color: var(--themeColor);
   color: #fff;
-  padding: 5rpx 20rpx;
   border-radius: 11rpx;
-  text-align: center;
 }

@@ -30,18 +30,23 @@ Page({
   },
   feedback(e){
     let type = this.data.array[e.detail.value.picker];
+    //console.log(type);
     let content = e.detail.value.content;
     content = content.replace(/\s+/g,"");//去掉空格
-    if(content == null || content.length<=0){//判断是否为空
+    if(content == null || content.length <= 0){//判断是否为空
       wx.showToast({
         title: '内容不得为空',
         icon: 'error',
         duration: 2000
       })
     }else{
-      console.log(type);
-      console.log(content);
-    }
+      wx.showToast({
+        title: '提交成功',
+        icon: 'success',
+        duration: 2000
+      })
+    };
+    wx.$post("",{type,content});
   },
   /**
    * 生命周期函数--监听页面加载
