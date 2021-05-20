@@ -2,8 +2,9 @@
     <input 
     class="search" 
     placeholder="订单日期/关键字" 
+    bindinput="inputHandle"
     auto-focus/>
-    <view class="iconfont icon-xingtaiduICON_sousuo---copy icon" ></view>
+    <view bindtap="searchHanlde" class="iconfont icon-xingtaiduICON_sousuo---copy icon" ></view>
 </view>
-<!--结果-->
-<view wx:for="{{}}" wx:key="" class=""></view>
+
+  
