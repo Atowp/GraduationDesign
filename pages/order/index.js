@@ -106,22 +106,9 @@ Page({
   //获取订单数据
   async getOrderList(e){
     const orderList  = await wx.$get("/user/order");//还不晓得长啥样
-    const status_index = orderList.status;
+    console.log('orderList', orderList)
     this.setData({
       orderList,
-      status_index
-      //contact: orderList.contact,
-      //phone: orderList.phone,
-      //time: orderList.time,
-      //type: orderList.type,
-      //detail: orderList.detail,
-      //weight: orderList.weight,
-      //date: orderList.date,
-      //address: orderList.address,
-      //remark: orderList.remark,
-      //openId: orderList.openId,
-      //takeBy: orderList.takeBy,
-      //status: orderList.status
     })
   },
   /**

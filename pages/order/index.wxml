@@ -10,13 +10,8 @@
             <view class="order_box">
                 <!--进行中的订单-->
                 <block wx: if="{{status_index === 0 || status_index === 1}}">
-                <view class="order dd fold">
-                    <view data-index="1" catchtap='panel'
-                    wx: for="{{orderList}}"
-                    wx: for-item="item"
-                    wx: key="openId"
-                    bindtap="getOrderList"
-                    >
+                <view class="order dd fold" wx:for="{{orderList}}">
+                    <view catchtap='panel'>
                     <view>
                         <text>订单类型</text>
                         {{item.type}}
@@ -82,10 +77,10 @@
             <block wx: if="{{status_index === 2 || status_index === -1}}">
             <view class="order_box">
                 <!--订单-->
-                <view class="order d1">
+                <view class="order d1" wx:for="{{orderList}}">
                     <view data-index="2" catchtap='panel'
-                    wx: for="{{orderList}}"
-                    wx: for-item="item"
+                    
+                    wx:for-item="item"
                     wx: key="openId"
                     bindtap="getOrderList"
                     >

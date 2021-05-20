@@ -16,17 +16,17 @@
 <form>
 <view class="box">
     <view class="info_box">
-        <view class="info_title">地区</view>
+        <!-- <view class="info_title">地区</view>
         <view class="info_text">
             <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
                 <view>
                 {{region[1]}}{{region[2]}}
                 </view>
             </picker>
-        </view>
+        </view> -->
         <view class="info_title">联系人</view>
         <view class="info_text">
-        <input placeholder="请输入联系人" value="{{concat}}"/>
+        <input placeholder="请输入联系人" value="{{contact}}"/>
         </view>
         <view class="info_title">联系电话</view>
         <view class="info_text">
@@ -40,8 +40,7 @@
         <view>
             <view class="info_title">需要回收的物品千克数</view>
             <view class="item2 info_text">
-                <input placeholder="输入" type="number"
-                       bindinput="inputValue"/>已输入{{weight}}千克
+                <input placeholder="重量" type="number" value="{{weight}}" />千克(kg)
             </view>
         </view>
         <view class="info_title">选择的上门服务时间</view>
