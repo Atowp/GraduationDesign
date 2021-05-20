@@ -18,7 +18,7 @@ export const request = (params) => {
 
 const request2 = ({ url = "", data = {}, method = "POST", header = {} } = {}) => {
      const baseUrl = "https://gomong.atowp.top";
-    //const baseUrl = "http://localhost:8310";
+    // const baseUrl = "http://localhost:8310";
     return new Promise((resolve, reject) => {
       const token  = wx.getStorageSync('token');
       if (token) {
@@ -56,4 +56,12 @@ const request2 = ({ url = "", data = {}, method = "POST", header = {} } = {}) =>
   export const get = (url, options) => {
     return request2({url, method: 'GET', ...options})
   }
+  export const put = (url, data, options) => {
+    return request2({url, data, method: 'PUT', ...options})
+  }
+  // 因为delete是JS的关键字
+  export const delete1 = (url, options) => {
+    return request2({url, method: 'DELETE', ...options})
+  }
+  
   

@@ -48,9 +48,12 @@
                     </view>
                     <view>
                         <text>订单状态</text>
-                        {{status[status_index]}}
+                        {{statusDict[item.status]}}
                     </view>
-                    <view class="button_box cancel" catchtap="cancel">
+                    <view wx:if="{{item.status === -1}}" class="button_box delete" catchtap="delete" data-item="{{item}}">
+                        <view class="button">删除订单</view>
+                    </view>
+                    <view wx:if="{{item.status === 0}}" class="button_box cancel" catchtap="cancel" data-item="{{item}}">
                         <view class="button">取消订单</view>
                     </view>
                     </view>
@@ -115,7 +118,7 @@
                     </view>
                     <view>
                         <text>订单状态</text>
-                        {{status[status_index]}}
+                        {{statusDict[item.status]}}
                     </view>
                     <!--只有失败的订单可以删除-->
                     <block wx: if="{{status_index === -1}}">

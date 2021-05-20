@@ -1,10 +1,12 @@
 //app.js
-const { post, get } = require("./request/index");
+const { post, get, put, delete1 } = require("./request/index");
 App({
   //onLaunch,onShow: options(path,query,scene,shareTicket,referrerInfo(appId,extraData))
   onLaunch: function (options) {
     wx.$post = post;
     wx.$get = get;
+    wx.$put = put;
+    wx.$delete = delete1;
     this.login();
   },
   login() {
