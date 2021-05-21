@@ -13,8 +13,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/join/index",
-          "pathName": "pages/join/index",
+          "name": "pages/phone/index",
+          "pathName": "pages/phone/index",
           "query": "",
           "scene": null
         },

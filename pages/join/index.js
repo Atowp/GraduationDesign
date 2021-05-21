@@ -11,7 +11,7 @@ Page({
     const test = e.currentTarget.dataset.test;//test
     //console.log(test);
     //this.data.status.status == 0
-    if(1){//判断有无拾荒者身份 0普通 2拾荒者
+    if(this.data.status.status == 0){//判断有无拾荒者身份 0普通 2拾荒者
       wx.navigateTo({
         url: '../staff-login/index'
       });
@@ -26,7 +26,7 @@ Page({
   enter (e) {
     const test2 = e.currentTarget.dataset.test2;
     //console.log(test2);
-    if(1){//判断有无拾荒者身份
+    if(this.data.status.status == 2){//判断有无拾荒者身份
       wx.reLaunch({
         url: '../picker_index/picker_index'
       });

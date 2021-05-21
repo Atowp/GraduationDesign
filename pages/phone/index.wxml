@@ -1,7 +1,7 @@
 <view class="box">
     <view class="in-box">
         <form bindsubmit="revise">
-            <input placeholder="{{phone}}" class="item"/>
+            <input placeholder="{{phone}}" class="item" name="phone"/>
             <button class="item button" formType="submit"
             style="height: 60rpx;text-align: center;font-size: 35rpx;line-height: 60rpx">
             修改</button>

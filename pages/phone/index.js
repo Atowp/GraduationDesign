@@ -9,25 +9,33 @@ Page({
   },
 
   async getPhone(){
-    const userInfo = await wx.$get("/user/info");
-    this.setData({
-      phone: userInfo.phone
-    })
-    console.log(phone);
+    //const userInfo = await wx.$get("/user/info");
+    //this.setData({
+    //  phone: userInfo.phone
+    //})
+    //console.log(phone);
   },
   revise(e){
     //发送该数字到后台搜索是否存在，不存在即可绑定
     const test = e.currentTarget.dataset.test;
-    if(test === 0){
+    const {phone} = e.detail.value;
+    console.log(phone.length);
+    if((phone.length) < 11 || (phone.length) > 11){
+      wx.showToast({
+        title: '非法长度',
+        icon: 'error',
+        duration: 2000
+      })
+      //wx.$post('', {
+      //  phone
+      //})
+      //还需要返回一个结果
+    }else if(phone){
       wx.showToast({
         title: '成功提交修改请求',
         icon: 'success',
         duration: 2000
-      }),
-      wx.$post('', {
-        phone
-      })
-      //还需要返回一个结果
+      });
     }else{
       wx.showToast({
         title: '该号码已被绑定',
