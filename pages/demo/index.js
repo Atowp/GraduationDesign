@@ -9,7 +9,32 @@ Page({
     //折叠展开相关
     showIndex: 0,
     //订单信息
-    orderList: []
+    orderList: [],
+    status: [
+      {
+        index: 0,
+        value: "未接取",
+      },
+      {
+        index: 1,
+        value: "已接取",
+      },
+      {
+        index: 2,
+        value: "交易成功",
+      },
+      {
+        index: -1,
+        value: "交易失败",
+      },
+    ],
+    statusDict: {
+      "-1": "交易失败",
+      0: "未接取",
+      1: "未接取",
+      2: "交易成功",
+    },
+    status_index: 0
   },
 
   panel: function (e) {
@@ -33,7 +58,7 @@ Page({
         orderList,
         status_index: i
       });
-      console.log(orderList[i].status);//订单状态
+      console.log(orderList[i].status);//订单状态 0 1 2 -1
     };
   },
   /**

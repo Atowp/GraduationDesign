@@ -2,57 +2,49 @@
 <view class="">
     <!--订单-->
     <view class="order_content">
-        <!--进行部分-->
+        <!--进行中的订单-->
         <view class="block">
             <text class="title">进行中的订单</text>
-            <view class="order_box" wx:for="{{orderList}}">
-                <!--进行中的订单-->
-                <block wx: if="{{item.status == 0 || item.status == 1}}">
-                <!--订单-->
-                <view data-index="1" catchtap='panel' class="order dd fold">
-                    <view>
+            <!--循环-->
+            <view class="order_box"
+            bindtap="getOrderList" 
+            wx:for="{{orderList}}"
+            wx:for-item="item">
+                <!--一个订单-->
+                <view class="order dd" wx:if="{{item.status == 0 || item.status == 1}}">
+                <view
+                data-index="1"
+                catchtap='panel'>
                     <view>
                         <text>订单类型</text>
                         {{item.type}}
                     </view>
-                    </view>
+                
                     <!--折叠展开分割线-->
-                    <view class="unfold" wx:if="{{showIndex == 1}}" data-index="0">
+                <view wx:if="{{showIndex == 1}}" data-index="0">
                     <view>
                         <text>订单状态</text>
                         {{statusDict[item.status]}}
                     </view>
-                    <view wx:if="{{item.status === -1}}" class="button_box delete" catchtap="delete" data-item="{{item}}">
-                        <view class="button">删除订单</view>
-                    </view>
-                    <view wx:if="{{item.status === 0}}" class="button_box cancel" catchtap="cancel" data-item="{{item}}">
-                        <view class="button">取消订单</view>
-                    </view>
-                    </view>
-                    <!--分割线end-->
                 </view>
-                </block>
-                <!--wx if薛定谔的空格-->
-                <block wx: elif="{{item.status != 2 && item.status != -1}}"></block>
-                <!--进行中end-->
+                </view>
+                </view>
             </view>
         </view>
-        <!--进行end-->
-        <!--历史部分-->
+        <!--历史订单-->
         <view class="block">
             <view class="title_box">
             <text class="title">历史订单</text>
             </view>
-            <!--历史订单-->
+            <!--循环-->
             <view class="order_box" 
+            bindtap="getOrderList"
             wx:for="{{orderList}}"
             wx:for-item="item">
-            <block wx: if="{{item[status_index].status == 2 || item[status_index].status == -1}}">
-                <!--订单-->
+                <!--一个订单-->
+                <view wx:if="{{item.status == 2 || item.status == '-1'}}">
                 <view class="order d1"
-                    bindtap="getOrderList"
-                    
-                    >
+                >
                     <view data-index="2"
                     catchtap='panel'
                     >
@@ -60,50 +52,17 @@
                         <text>订单类型</text>
                         {{item.type}}
                     </view>
-                    <view>
-                        <text>重量</text>
-                        {{item.weight}}kg
                     </view>
-                    <view>
-                        <text>预约时间</text>
-                        {{item.time}}
-                    </view>
-                    <view>
-                        <text>日期</text>
-                        {{item.date}}
-                    </view>
-                    </view>
-                    <view class="unfold" wx:if="{{showIndex == 2}}"  data-index="0" catchtap='panel'>
-                    <view>
-                        <text>联系人</text>
-                        {{item.contact}}
-                    </view>
-                    <view>
-                        <text>电话</text>
-                        {{item.phone}}
-                    </view>
-                    <view>
-                        <text>详细地址</text>
-                        {{item.address}}
-                    </view>
+                    <view class="unfold" wx:if="{{showIndex == 2}}" 
+                    data-index="0" catchtap='panel'>
                     <view>
                         <text>订单状态</text>
                         {{statusDict[item.status]}}
                     </view>
-                    <!--只有失败的订单可以删除-->
-                    <block wx: if="{{item.status == -1}}">
-                    <view class="button_box delete" catchtap="delete">
-                        <view class="button">删除订单</view>
-                    </view>
-                    </block>
-                    <block wx: else></block>
                     </view>
                 </view>
-            </block>
-            <!--注意elif-->
-            <block wx: else></block>
+                </view>
             </view>
-            <!--历史end-->
         </view>
         <!--历史部分-->
     </view>

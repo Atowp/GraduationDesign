@@ -18,6 +18,7 @@ page {
   font-size: 40rpx;
 }
 .order_box {
+  background-color: orange;
   display: flex;
   flex-wrap: wrap;
 }
@@ -35,7 +36,6 @@ page {
 .order_box .dd {
   background-color: var(--themeColor);
   color: #fff;
-  margin-right: 10rpx;
 }
 .order_box .d1 {
   margin-right: 10rpx;
