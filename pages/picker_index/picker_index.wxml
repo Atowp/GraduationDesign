@@ -21,8 +21,8 @@
                     </label>
                 </checkbox-group>
                 <!--循环-->
-                <panel wx:for="{{orderList}}" wx:if="{{item.status == 0}}" wx:key="{{item._id}}" 
-                bind:reload="getOrderList" item="{{item}}"></panel>
+                <panel wx:for="{{filterOrderList}}" wx:if="{{item.status == 0}}" wx:key="{{item._id}}" 
+                bind:reload="filterOrderList" item="{{item}}"></panel>
             </view>
         </view>
         </scroll-view>
@@ -53,21 +53,21 @@
             <view class="box box2">
                 <!--信息-->
                 <view class="info_box">
-                    <view class=" title" name="name">姓名：</view>
-                    <view><input placeholder="授权给的" /></view>
+                    <view class=" title" >姓名：</view>
+                    <view><input placeholder="授权给的" name="name" value="{{userInfo.name}}" /></view>
                 </view>
-                <view class="info_box" name="sex">
+                <view class="info_box" >
                     <view class=" title">性别：</view>
-                    <view><input placeholder="授权给的" /></view>
+                    <view>{{userInfo.sex === 1 ? '男' : '女'}}</view>
                 </view>
-                <view class="info_box" name="region">
+                <view class="info_box">
                     <view class=" title">地区：</view>
-                    <view><input placeholder="授权给的" /></view>
+                    <view><input placeholder="授权给的" name="address" value="{{userInfo.address}}"/></view>
                     <view class="bind_button">修改</view>
                 </view>
-                <view class="info_box" name="phone">
+                <view class="info_box">
                     <view class=" title">电话：</view>
-                    <view><input placeholder="从后台传进来的"/></view>
+                    <view><input placeholder=""  name="phone" value="{{userInfo.phone}}"/></view>
                     <view class="bind_button">修改</view>
                 </view>
             </view>
@@ -76,26 +76,26 @@
                 <view class="favor_title">订单偏好设置</view>
                 <view class="box2_1">
                     <view class="favor_title1">偏好地区</view>
-                    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" 
+                    <picker mode="region" bindchange="bindRegionChange" value="{{likeArea}}" custom-item="{{customItem}}" 
                     name="likeArea">
                         <view class="picker">
-                            {{region[0]}}，{{region[1]}}，{{region[2]}}
+                            {{likeArea[0]}}，{{likeArea[1]}}，{{likeArea[2]}}
                         </view>
                     </picker>
                 </view>
                 <view>
                     <view class="favor_title1">偏好重量</view>
-                    <checkbox-group bindchange="checkboxChange" name="likeWeight">
-                        <label class="checkbox" wx:for="{{weight}}">
-                            <checkbox value="{{item.name}}" checked="{{item.checked}}" color="#fbd22c"/>{{item.value}}
+                    <checkbox-group>
+                        <label class="checkbox" wx:for="{{weight}}" bindtap="tapWeight" data-value="{{item.value}}">
+                            <checkbox value="{{item.value}}" checked="{{likeWeight === item.value}}" color="#fbd22c"/>{{item.name}}
                         </label>
                     </checkbox-group>
                 </view>
                 <view>
                     <view class="favor_title1">偏好类型</view>
-                    <checkbox-group bindchange="checkboxChange" name="likeType">
+                    <checkbox-group name="likeType">
                         <label class="checkbox" wx:for="{{type}}">
-                            <checkbox value="{{item.name}}" checked="{{item.checked}}" color="#fbd22c"/>{{item.value}}
+                            <checkbox value="{{item.name}}" checked="{{item.value}}" color="#fbd22c"/>{{item.name}}
                         </label>
                     </checkbox-group>
                 </view>

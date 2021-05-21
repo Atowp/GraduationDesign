@@ -5,126 +5,128 @@ Page({
       {
         id: 0,
         value: "首页",
-        isActive: true
+        isActive: true,
       },
       {
         id: 1,
         value: "订单",
-        isActive: false
+        isActive: false,
       },
       {
         id: 2,
         value: "个人",
-        isActive: false
-      }
+        isActive: false,
+      },
     ],
     //展开
     unfold: false,
-
-    array: ['按时间筛选', '本月', '三个月内','一年内','有史以来'],
+    userInfo: {
+      name: "",
+      sex: 0,
+      address: "",
+      phone: "",
+    },
+    likeWeight: "",
+    likeArea: [],
+    likeType: ["一键回收"],
+    array: ["按时间筛选", "本月", "三个月内", "一年内", "有史以来"],
     objectArray: [
       {
         id: 0,
-        name: '按时间筛选'
+        name: "按时间筛选",
       },
       {
         id: 1,
-        name: '本月'
+        name: "本月",
       },
       {
         id: 2,
-        name: '三个月内'
+        name: "三个月内",
       },
       {
         id: 1,
-        name: '一年内'
+        name: "一年内",
       },
       {
         id: 2,
-        name: '有史以来'
-      }
+        name: "有史以来",
+      },
     ],
     index: 0,
 
     items: [
-      { name: 'AREA', value: '按地区筛选' },
-      { name: 'WEIGHT', value: '按重量筛选'},
-      { name: 'TYPE', value: '按类型筛选' }
+      { name: "AREA", value: "按地区筛选" },
+      { name: "WEIGHT", value: "按重量筛选" },
+      { name: "TYPE", value: "按类型筛选" },
     ],
 
-    region: ['广东省', '珠海市', '香洲区'],
-    customItem: '全部',
+    region: ["广东省", "珠海市", "香洲区"],
+    customItem: "全部",
 
     weight: [
-      { name: '1kg', value: '1kg'},//==1kg
-      { name: '1-3kg', value: '1-3kg'},//>1kg&&<=3kg
-      { name: '3kg以上', value: '3kg以上'}//>3kg
+      { name: "1kg", value: "small" }, //==1kg
+      { name: "1-3kg", value: "medium" }, //>1kg&&<=3kg
+      { name: "3kg以上", value: "large" }, //>3kg
     ],
 
     type: [
-      { name: '电子产品', value: '电子产品'},
-      { name: '大件家具', value: '大件家具'},
-      { name: '书籍杂志', value: '书籍杂志'},
-      { name: '可回收物', value: '可回收物'},
-      { name: '有害垃圾', value: '有害垃圾'},
-      { name: '厨余垃圾', value: '厨余垃圾'},
-      { name: '其他垃圾', value: '其他垃圾'},
-      { name: '一键回收', value: '一键回收'}
+      { name: "电子产品", value: false },
+      { name: "大件家具", value: false },
+      { name: "书籍杂志", value: false },
+      { name: "可回收物", value: false },
+      { name: "有害垃圾", value: false },
+      { name: "厨余垃圾", value: false },
+      { name: "其他垃圾", value: false },
+      { name: "一键回收", value: false },
     ],
-
-    //折叠展开相关
-    showIndex: 0,
-
     orderList: [],
-    status: [
-      {
-        index: 0,
-        value: "未接取",
-      },
-      {
-        index: 1,
-        value: "已接取",
-      },
-      {
-        index: 2,
-        value: "交易成功",
-      },
-      {
-        index: -1,
-        value: "交易失败",
-      },
-    ],
+    filterOrderList: [],
     statusDict: {
       "-1": "交易失败",
       0: "未接取",
       1: "未接取",
       2: "交易成功",
-    }
+    },
   },
-  checkboxChange: function (e) {
-    console.log('checkbox发生change事件，携带value值为：', e.detail.value)
-  },//打印checkbox
+  tapWeight(e) {
+    console.log(e, e.currentTarget.dataset);
+    this.setData({
+      likeWeight: e.currentTarget.dataset.value,
+    });
+  },
+  async checkboxChange(e) {
+    const filter = e ? e.detail.value.toString() : "";
+    const filterOrderList = await wx.$get("/picker/order?filter=" + filter);
+    this.setData({
+      filterOrderList,
+    });
+  }, //打印checkbox
   bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    console.log("picker发送选择改变，携带值为", e.detail.value);
     this.setData({
-      index: e.detail.value
-    })
-  },//筛选
+      likeArea: e.detail.value,
+    });
+  }, //筛选
   bindRegionChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    console.log("picker发送选择改变，携带值为", e.detail.value);
     this.setData({
-      region: e.detail.value
-    })
-  },//地区
-  toToggle(e){
-    //console.log(e);
-    const {index} = e.detail;
-    let {nav} = this.data;
-    nav.forEach((v,i) => i === index ? v.isActive = true : v.isActive = false);
+      likeArea: e.detail.value,
+    });
+  }, //地区
+  toToggle(e) {
+    const { index } = e.detail;
+    let { nav } = this.data;
+    nav.map((item) => (item.isActive = false));
+    if (index === 0) {
+      this.checkboxChange();
+      this.getOrderList();
+    }
+    index === 2 && this.getUserInfo();
+    nav[index].isActive = true;
     this.setData({
-      nav
-    })
-  },//导航
+      nav,
+    });
+  }, //导航
   //panel: function (e) {
   //  if (e.currentTarget.dataset.index != this.data.showIndex) {
   //    this.setData({
@@ -138,16 +140,52 @@ Page({
   //},
   async getOrderList(e) {
     const orderList = await wx.$get("/user/order");
-    //console.log(orderList);
     this.setData({
-      orderList
+      orderList,
     });
   },
-  submit(e){
-    const {name,sex,region,phone,likeArea,likeWeight,likeType} = e.detail.value;
-    wx.$post("",{name,sex,region,phone,likeArea,likeWeight,likeArea});
+  async getUserInfo() {
+    const userInfo = await wx.$get("/user/info");
+    const likeArea = [];
+    userInfo.likeArea.map((item) => {
+      likeArea.push(item || "全部");
+    });
+    this.setData({
+      userInfo,
+      likeArea,
+      likeWeight: userInfo.likeWeight,
+    });
+
+    const type = Object.assign([], this.data.type);
+    type.map((item) => {
+      if (userInfo.likeType.includes(item.name)) {
+        item.value = true;
+      }
+    });
+    this.setData({ type });
+  },
+  submit(e) {
+    const { likeType, name, address, phone } = e.detail.value;
+    const likeArea = [];
+    this.data.likeArea.map((item) =>
+      likeArea.push(item === "全部" ? "" : item)
+    );
+    const userInfo = this.data.userInfo;
+    const likeWeight = this.data.likeWeight;
+    wx.$put(`/user/info/${userInfo._id}`, {
+      likeArea,
+      likeType,
+      name,
+      address,
+      phone,
+      likeWeight,
+    }).then(() => {
+      wx.showToast({ title: "保存成功" });
+    });
   },
   onLoad: function (options) {
-      this.getOrderList();
-  }
-})
+    this.getOrderList();
+    this.getUserInfo();
+    this.checkboxChange();
+  },
+});
