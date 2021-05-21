@@ -74,9 +74,18 @@ Page({
   //传参
   handleClass() {
     const params = JSON.stringify([...this.data.selected]);
-    wx.navigateTo({
-      url: `/pages/confirm/index?type=${this.data.type}&detail=${params}`,
-    })
+    if(this.data.num == 0){
+      wx.showToast({
+        title: '至少选择一项',
+        icon: 'error',
+        duration: 2000
+      })
+    }else{
+      wx.navigateTo({
+        url: `/pages/confirm/index?type=${this.data.type}&detail=${params}`,
+      })
+    }
+    
   },
   //选中状态
   getSelected(e) {

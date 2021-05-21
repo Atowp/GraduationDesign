@@ -235,7 +235,7 @@
 .box {
   height: 60rpx;
   border-radius: 33rem;
-  margin: 10rpx;
+  margin: 10rpx 10rpx 20rpx 10rpx;
   padding-left: 20rpx;
   box-shadow: 0 5rpx 15rpx #888888;
   display: flex;
@@ -251,4 +251,12 @@
   color: #fff;
   background-color: var(--themeColor);
   border-radius: 0 33rem 33rem 0 ;
+}
+.item {
+  background-color: var(--themeColor);
+  margin: 10rpx;
+  border-radius: 11rpx;
+  padding: 10rpx;
+  font-size: 35rpx;
+  color: #fff;
 }

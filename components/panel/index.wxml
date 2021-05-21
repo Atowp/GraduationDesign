@@ -1,0 +1,5 @@
+<view catchtap="panel" data-index="1">
+    <slot name="fold"></slot>
+    <view wx:if="{{showIndex == 2}}" data-index="0"></view>
+    <slot name="unfold"></slot>
+</view>

@@ -16,7 +16,7 @@ Page({
         list: list,
         index: i
       });
-      console.log(i);
+      //console.log(i);
     }
   },
   inputHandle(e) {

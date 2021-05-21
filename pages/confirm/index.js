@@ -153,7 +153,7 @@ Page({
         remark,
         status
       });
-      wx.navigateTo({
+      wx.reLaunch({
         url: "../success/index"
       });
     }
