@@ -10,7 +10,8 @@ Page({
   join (e) {
     const test = e.currentTarget.dataset.test;//test
     //console.log(test);
-    if(this.data.status.status == 0){//判断有无拾荒者身份 0普通 2拾荒者
+    //this.data.status.status == 0
+    if(1){//判断有无拾荒者身份 0普通 2拾荒者
       wx.navigateTo({
         url: '../staff-login/index'
       });

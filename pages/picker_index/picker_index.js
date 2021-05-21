@@ -143,6 +143,10 @@ Page({
       orderList
     });
   },
+  submit(e){
+    const {name,sex,region,phone,likeArea,likeWeight,likeType} = e.detail.value;
+    wx.$post("",{name,sex,region,phone,likeArea,likeWeight,likeArea});
+  },
   onLoad: function (options) {
       this.getOrderList();
   }

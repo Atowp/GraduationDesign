@@ -118,3 +118,10 @@ checkbox-group {
   font-weight: bold;
   margin-right: 10rpx;
 }
+.save {
+  border: 5rpx solid #000;
+  border-radius: 11rpx;
+  width: 100%;
+  text-align: center;
+  padding: 10rpx;
+}

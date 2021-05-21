@@ -8,7 +8,8 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUseGetUserProfile: false,
-    region: ['广东省', '珠海市', '香洲区']
+    region: ['广东省', '珠海市', '香洲区'],
+    phone: 0
   },
 
   /**
@@ -53,6 +54,13 @@ Page({
     this.setData({
       region: e.detail.value
     })
+  },
+  async getPhone(){
+    const userInfo = await wx.$get("/user/info");
+    this.setData({
+      phone: userInfo.phone
+    })
+    //console.log(phone);
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

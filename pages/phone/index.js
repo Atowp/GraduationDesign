@@ -9,10 +9,11 @@ Page({
   },
 
   async getPhone(){
-    const phone = await wx.$get("");
+    const userInfo = await wx.$get("/user/info");
     this.setData({
-      phone: phone
+      phone: userInfo.phone
     })
+    console.log(phone);
   },
   revise(e){
     //发送该数字到后台搜索是否存在，不存在即可绑定

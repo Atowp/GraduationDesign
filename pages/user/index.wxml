@@ -32,7 +32,7 @@
         </picker>
     </view>
     <!--未绑定-->
-    <view class="button_box" wx:if="{{1}}">
+    <view class="button_box" wx:if="{{phone == 0}}">
         电话：<input placeholder="未绑定"/>
         <view class="bind_button">绑定</view>
     </view>

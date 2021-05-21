@@ -83,6 +83,12 @@
           "pathName": "pages/demo/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/notice/index",
+          "pathName": "pages/notice2/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

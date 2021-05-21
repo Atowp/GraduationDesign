@@ -40,7 +40,7 @@ Page({
         duration: 2000
       })
     }else{
-      //wx.$post("",{name,sexual,phone,time,area});
+      wx.$post("/user/info",{name,sexual,phone,time,area});
       wx.reLaunch({
         url: '../success/index'
       })

@@ -1,20 +1,31 @@
-// pages/notice/index.js
+import { request } from "../../request/index.js";
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    title: '',
+    content: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getNotice();
   },
-
+  getNotice(){
+    request({
+      url: "/notice.json"
+    }).then((result) => {
+      this.setData({
+        title: result.data.message[0].title,
+        content: result.data.message[0].content
+      });
+      //console.log(this.data.title);
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -49,22 +49,23 @@
     <!--个人-->
     <block wx:elif="{{nav[2].isActive}}">
         <scroll-view scroll-y class="scroll">
+            <form bindsubmit="submit">
             <view class="box box2">
                 <!--信息-->
                 <view class="info_box">
-                    <view class=" title">姓名：</view>
+                    <view class=" title" name="name">姓名：</view>
                     <view><input placeholder="授权给的" /></view>
                 </view>
-                <view class="info_box">
+                <view class="info_box" name="sex">
                     <view class=" title">性别：</view>
                     <view><input placeholder="授权给的" /></view>
                 </view>
-                <view class="info_box">
+                <view class="info_box" name="region">
                     <view class=" title">地区：</view>
                     <view><input placeholder="授权给的" /></view>
                     <view class="bind_button">修改</view>
                 </view>
-                <view class="info_box">
+                <view class="info_box" name="phone">
                     <view class=" title">电话：</view>
                     <view><input placeholder="从后台传进来的"/></view>
                     <view class="bind_button">修改</view>
@@ -75,7 +76,8 @@
                 <view class="favor_title">订单偏好设置</view>
                 <view class="box2_1">
                     <view class="favor_title1">偏好地区</view>
-                    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+                    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" 
+                    name="likeArea">
                         <view class="picker">
                             {{region[0]}}，{{region[1]}}，{{region[2]}}
                         </view>
@@ -83,7 +85,7 @@
                 </view>
                 <view>
                     <view class="favor_title1">偏好重量</view>
-                    <checkbox-group bindchange="checkboxChange">
+                    <checkbox-group bindchange="checkboxChange" name="likeWeight">
                         <label class="checkbox" wx:for="{{weight}}">
                             <checkbox value="{{item.name}}" checked="{{item.checked}}" color="#fbd22c"/>{{item.value}}
                         </label>
@@ -91,13 +93,17 @@
                 </view>
                 <view>
                     <view class="favor_title1">偏好类型</view>
-                    <checkbox-group bindchange="checkboxChange">
+                    <checkbox-group bindchange="checkboxChange" name="likeType">
                         <label class="checkbox" wx:for="{{type}}">
                             <checkbox value="{{item.name}}" checked="{{item.checked}}" color="#fbd22c"/>{{item.value}}
                         </label>
                     </checkbox-group>
                 </view>
+                <button class="save" formType="submit" 
+                style="background-color: #000;color: var(--pickerColor);text-align: center;font-size: 35rpx;line-height: 60rpx;font-weight: bold"
+                >保存</button>
             </view>
+            </form>
             <!--消息通知-->
             <navigator class="box box2"  url="../notice2/index">
                 <view class="title">消息通知</view>
