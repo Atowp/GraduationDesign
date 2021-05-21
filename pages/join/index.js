@@ -5,12 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    status: 0
   },
   join (e) {
     const test = e.currentTarget.dataset.test;//test
     //console.log(test);
-    if(test === 0){//判断有无拾荒者身份
+    if(test === 1){//判断有无拾荒者身份
       wx.navigateTo({
         url: '../staff-login/index'
       });
@@ -19,7 +19,8 @@ Page({
         title: '已有拾荒者权限',
         icon: 'error',
         duration: 2000
-      })
+      });
+      console.log(this.data.status);
     }
   },
   enter (e) {
@@ -37,12 +38,17 @@ Page({
       })
     }
   },
-
+  async getUserInfo() {
+    const status = await wx.$get("/user/info"); 
+    this.setData({
+      status
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getUserInfo();
   },
 
   /**

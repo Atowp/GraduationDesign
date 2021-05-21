@@ -51,6 +51,10 @@
                             <text>订单状态</text>
                             {{statusDict[item.status]}}
                         </view>
+                        <view>
+                            <text>备注</text>
+                            {{item.remark}}
+                        </view>
                         <!--删除订单应该在历史订单-->
                         <!--<view wx:if="{{item.status === '-1'}}" class="button_box delete" catchtap="delete" data-item="{{item}}">
                             <view class="button">删除订单</view>
@@ -81,7 +85,8 @@
             wx:for-item="item">
                 <!--一个订单-->
                 <view class="order d1" 
-                wx:if="{{item.status == 2 || item.status == '-1'}}">
+                wx:if="{{item.status == 2 || item.status == '-1'}}"
+                >
                     <view data-index="2"
                     catchtap='panel'
                     >
@@ -102,28 +107,32 @@
                         {{item.date}}
                     </view>
                     <view wx:if="{{showIndex == 2}}"  data-index="0">
-                    <view>
-                        <text>联系人</text>
-                        {{item.contact}}
-                    </view>
-                    <view>
-                        <text>电话</text>
-                        {{item.phone}}
-                    </view>
-                    <view>
-                        <text>详细地址</text>
-                        {{item.address}}
-                    </view>
-                    <view>
-                        <text>订单状态</text>
-                        {{statusDict[item.status]}}
-                    </view>
-                    <!--只有失败的订单可以删除-->
-                    <view wx: if="{{item.status == '-1'}}">
-                        <view class="button_box delete" catchtap="delete">
-                            <view class="button">删除订单</view>
+                        <view>
+                            <text>联系人</text>
+                            {{item.contact}}
                         </view>
-                    </view>
+                        <view>
+                            <text>电话</text>
+                            {{item.phone}}
+                        </view>
+                        <view>
+                            <text>详细地址</text>
+                            {{item.address}}
+                        </view>
+                        <view>
+                            <text>订单状态</text>
+                        {{statusDict[item.status]}}
+                        </view>
+                        <view>
+                            <text>备注</text>
+                            {{item.remark}}
+                        </view>
+                    <!--只有失败的订单可以删除-->
+                        <view wx: if="{{item.status == '-1'}}">
+                            <view class="button_box delete" catchtap="delete">
+                                <view class="button">删除订单</view>
+                            </view>
+                        </view>
                     </view>
                     </view>
                 </view>

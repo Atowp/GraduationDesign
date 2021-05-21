@@ -70,7 +70,36 @@ Page({
       { name: '厨余垃圾', value: '厨余垃圾'},
       { name: '其他垃圾', value: '其他垃圾'},
       { name: '一键回收', value: '一键回收'}
-    ]
+    ],
+
+    //折叠展开相关
+    showIndex: 0,
+
+    orderList: [],
+    status: [
+      {
+        index: 0,
+        value: "未接取",
+      },
+      {
+        index: 1,
+        value: "已接取",
+      },
+      {
+        index: 2,
+        value: "交易成功",
+      },
+      {
+        index: -1,
+        value: "交易失败",
+      },
+    ],
+    statusDict: {
+      "-1": "交易失败",
+      0: "未接取",
+      1: "未接取",
+      2: "交易成功",
+    }
   },
   checkboxChange: function (e) {
     console.log('checkbox发生change事件，携带value值为：', e.detail.value)
@@ -96,20 +125,27 @@ Page({
       nav
     })
   },//导航
-  tapUnfold(e){
-    //console.log(e.currentTarget.dataset.unfold);
-    const unfold = e.currentTarget.dataset.unfold;//false
-    if(!unfold) return;
-    this.data.unfold = !unfold;
+  panel: function (e) {
+    if (e.currentTarget.dataset.index != this.data.showIndex) {
+      this.setData({
+        showIndex: e.currentTarget.dataset.index,
+      });
+    } else {
+      this.setData({
+        showIndex: 0,
+      });
+    };
+  },
+  finish(){},
+  access(){},
+  async getOrderList(e) {
+    const orderList = await wx.$get("/user/order");
+    //console.log(orderList);
     this.setData({
-      unfold: unfold
-    })
-  },//没写完
+      orderList
+    });
+  },
   onLoad: function (options) {
-      wx.getSystemInfoSync({
-        success(res){
-          console.log(res.windowHeight);
-        }
-      })    
-  }//没写完
+      this.getOrderList();
+  }
 })

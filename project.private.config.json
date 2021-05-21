@@ -73,8 +73,8 @@
           "scene": null
         },
         {
-          "name": "pages/confirm/index",
-          "pathName": "pages/confirm/index",
+          "name": "pages/join/index",
+          "pathName": "pages/join/index",
           "query": "",
           "scene": null
         },

@@ -133,14 +133,10 @@ Page({
   //获取订单数据
   async getOrderList(e) {
     const orderList = await wx.$get("/user/order"); //详情看上
-    console.log(orderList);
-    for(let i=0; i<orderList.length; i++){
-      this.setData({
-        orderList,
-        status_index: i
-      });
-      console.log(orderList[i].status);//订单状态
-    };
+    //console.log(orderList);
+    this.setData({
+      orderList
+    });
   },
   /**
    * 生命周期函数--监听页面加载

@@ -7,7 +7,46 @@ Page({
   data: {
 
   },
-
+  submit(e){
+    const {name,sexual,phone,time,area} = e.detail.value;
+    if(name <=0 ){
+      wx.showToast({
+        title: '姓名必填',
+        icon: 'error',
+        duration: 2000
+      })
+    }else if(sexual <= 0){
+      wx.showToast({
+        title: '性别必填',
+        icon: 'error',
+        duration: 2000
+      })
+    }else if(phone <= 0){
+      wx.showToast({
+        title: '手机号必填',
+        icon: 'error',
+        duration: 2000
+      })
+    }else if(time <= 0){
+      wx.showToast({
+        title: '时间必填',
+        icon: 'error',
+        duration: 2000
+      })
+    }else if(area <= 0){
+      wx.showToast({
+        title: '地区必填',
+        icon: 'error',
+        duration: 2000
+      })
+    }else{
+      //wx.$post("",{name,sexual,phone,time,area});
+      wx.reLaunch({
+        url: '../success/index'
+      })
+    }
+    //console.log(area);
+  },
   /**
    * 生命周期函数--监听页面加载
    */

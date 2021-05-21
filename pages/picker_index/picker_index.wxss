@@ -25,7 +25,7 @@ page {
 }
 .order_box .order {
   background-color: #d9d9d9;
-  width: 49%;
+  width: 100%;
   height: 100%;
   border-radius: 11rpx;
   padding: 15rpx 20rpx;

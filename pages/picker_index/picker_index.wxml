@@ -5,71 +5,68 @@
         <scroll-view scroll-y class="scroll">
         <view class="top">欢迎回来，{{Atowp}}</view>
         <view class="order_content">
+        <!--已接取-->
             <view class="block">
                 <text class="title">已接取的订单</text>
-                <view class="order_box" bindtap="tapUnfold" data-unfold="{{true}}">
-                    <!--接取的订单1-->
-                    <view class="order d1 dd">
+                <!--循环-->
+                <view class="order_box" 
+                bindtap="getOrderList"
+                wx:for="{{orderList}}"
+                wx:for-item="item">
+                    <!--一个订单-->
+                    <view class="order d1 dd" wx:if="{{item.status == '1'}}">
+                        <view data-index="1" catchtap='panel'>
                         <view>
                             <text>订单类型</text>
-                            一键回收
-                        </view>
-                        <view>
-                            <text>地区</text>
-                            珠海
+                            {{item.type}}
                         </view>
                         <view>
                             <text>重量</text>
-                            1kg
+                            {{item.weight}}kg
                         </view>
                         <view>
                             <text>预约时间</text>
-                            8:00-9:00
+                            {{item.time}}
                         </view>
-                    </view>
-                    <!--订单2-->
-                    <view class="order dd">
-                        <view>
-                            <text>订单类型</text>
-                            一键回收
+                        <!--展开折叠分割线-->
+                        <view  wx:if="{{showIndex == 1}}" data-index="0">
+                            <view wx: if="{{item.detail}} !== ''">
+                                <view>
+                                    <text>详细内容</text>
+                                    {{item.detail}}
+                                </view>
+                            </view>
+                            <view>
+                                <text>联系人</text>
+                                {{item.contact}}
+                            </view>
+                            <view>
+                                <text>电话</text>
+                                {{item.phone}}
+                            </view>
+                            <view>
+                                <text>详细地址</text>
+                                {{item.address}}
+                            </view>
+                            <view>
+                                <text>订单状态</text>
+                                {{statusDict[item.status]}}
+                            </view>
+                            <view>
+                                <text>备注</text>
+                                {{item.remark}}
+                            </view>
+                            <view class="button_box" 
+                            catchtap="finish" data-item="{{item}}">
+                                <view class="button">确认订单完成</view>
+                            </view>
                         </view>
-                        <view>
-                            <text>地区</text>
-                            珠海
-                        </view>
-                        <view>
-                            <text>重量</text>
-                            1kg
-                        </view>
-                        <view>
-                            <text>预约时间</text>
-                            8:00-9:00
-                        </view>
-                        <view>
-                            <text>联系人</text>
-                            陈女士
-                        </view>
-                        <view>
-                            <text>电话</text>
-                            13532631276
-                        </view>
-                        <view>
-                            <text>详细地址</text>
-                            <view>广东省珠海市金凤路6号北京理工大学珠海学院</view>
-                        </view>
-                        <view>
-                            <text>订单状态</text>
-                            进行中
-                        </view>
-                        <view class="button_box">
-                            <view class="button">确认订单完成</view>
-                        </view>
-                        <view class="button_box cancel">
-                            <view class="button">取消订单</view>
+                    <!--分割线-->
                         </view>
                     </view>
                 </view>
             </view>
+        <!--未接取-->
             <view class="block">
                 <text class="title">可接取的订单</text>
                 <checkbox-group bindchange="checkboxChange">
@@ -77,101 +74,63 @@
                         <checkbox value="{{item.name}}" checked="{{item.checked}}" color="#fbd22c"/>{{item.value}}
                     </label>
                 </checkbox-group>
-                <view class="order_box" bindtap="tapUnfold" data-unfold="{{true}}">
-                    <!--订单1-->
-                    <view class="order d1">
+                <!--循环1-->
+                <view class="order_box" 
+                bindtap="getOrderList" 
+                wx:for="{{orderList}}"
+                wx:for-item="item">
+                    <!--一个订单-->
+                    <view class="order d1"
+                    wx:if="{{item.status == '0'}}"
+                    >
+                        <view data-index="2"
+                        catchtap='panel'
+                        >
                         <view>
                             <text>订单类型</text>
-                            一键回收
-                        </view>
-                        <view>
-                            <text>地区</text>
-                            珠海
+                            {{item.type}}
                         </view>
                         <view>
                             <text>重量</text>
-                            1kg
+                            {{item.weight}}kg
                         </view>
                         <view>
                             <text>预约时间</text>
-                            8:00-9:00
+                            {{item.time}}
+                        </view>
+                        <view>
+                            <text>日期</text>
+                            {{item.date}}
+                        </view>
+                        <view wx:if="{{showIndex == 2}}"  data-index="0">
+                            <view>
+                                <text>联系人</text>
+                                {{item.contact}}
+                            </view>
+                            <view>
+                                <text>电话</text>
+                                {{item.phone}}
+                            </view>
+                            <view>
+                                <text>详细地址</text>
+                                {{item.address}}
+                            </view>
+                            <view>
+                                <text>订单状态</text>
+                            {{statusDict[item.status]}}
+                            </view>
+                            <view>
+                                <text>备注</text>
+                                {{item.remark}}
+                            </view>
+                    <!--只有失败的订单可以删除-->
+                            <view wx: if="{{item.status == 0}}">
+                                <view class="button_box" catchtap="access">
+                                    <view class="button">接取订单</view>
+                                </view>
+                            </view>
                         </view>
                     </view>
-                    <!--订单2-->
-                    <view class="order d2">
-                        <view>
-                            <text>订单类型</text>
-                            一键回收
-                        </view>
-                        <view>
-                            <text>地区</text>
-                            珠海
-                        </view>
-                        <view>
-                            <text>重量</text>
-                            1kg
-                        </view>
-                        <view>
-                            <text>预约时间</text>
-                            8:00-9:00
-                        </view>
-                        <view>
-                            <text>联系人</text>
-                            陈女士
-                        </view>
-                        <view>
-                            <text>电话</text>
-                            13532631276
-                        </view>
-                        <view>
-                            <text>详细地址</text>
-                            <view>广东省珠海市金凤路6号北京理工大学珠海学院</view>
-                        </view>
-                        <view>
-                            <text>订单状态</text>
-                            未接取
-                        </view>
-                        <view class="button_box">
-                            <view class="button">接取订单</view>
-                        </view>
-                    </view>
-                    <!--订单3-->
-                    <view class="order d1">
-                        <view>
-                            <text>订单类型</text>
-                            一键回收
-                        </view>
-                        <view>
-                            <text>地区</text>
-                            珠海
-                        </view>
-                        <view>
-                            <text>重量</text>
-                            1kg
-                        </view>
-                        <view>
-                            <text>预约时间</text>
-                            8:00-9:00
-                        </view>
-                    </view>
-                    <!--订单4-->
-                    <view class="order d2">
-                        <view>
-                            <text>订单类型</text>
-                            一键回收
-                        </view>
-                        <view>
-                            <text>地区</text>
-                            珠海
-                        </view>
-                        <view>
-                            <text>重量</text>
-                            1kg
-                        </view>
-                        <view>
-                            <text>预约时间</text>
-                            8:00-9:00
-                        </view>
                     </view>
                 </view>
             </view>
