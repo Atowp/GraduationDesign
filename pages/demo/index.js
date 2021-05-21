@@ -4,37 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    index: 0,
-
-    //折叠展开相关
-    showIndex: 0,
-    //订单信息
-    orderList: [],
-    status: [
-      {
-        index: 0,
-        value: "未接取",
-      },
-      {
-        index: 1,
-        value: "已接取",
-      },
-      {
-        index: 2,
-        value: "交易成功",
-      },
-      {
-        index: -1,
-        value: "交易失败",
-      },
-    ],
-    statusDict: {
-      "-1": "交易失败",
-      0: "未接取",
-      1: "未接取",
-      2: "交易成功",
-    },
-    status_index: 0
+    orderList: []
   },
 
   panel: function (e) {
@@ -52,14 +22,10 @@ Page({
   //获取订单数据
   async getOrderList(e) {
     const orderList = await wx.$get("/user/order"); //详情看上
-    console.log(orderList);
-    for(let i=0; i<orderList.length; i++){
-      this.setData({
-        orderList,
-        status_index: i
-      });
-      console.log(orderList[i].status);//订单状态 0 1 2 -1
-    };
+    this.setData({
+      orderList
+    })
+    console.log(this.data.orderList)
   },
   /**
    * 生命周期函数--监听页面加载

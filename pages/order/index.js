@@ -81,62 +81,14 @@ Page({
       index: e.detail.value,
     });
   },
-  panel: function (e) {
-    if (e.currentTarget.dataset.index != this.data.showIndex) {
-      this.setData({
-        showIndex: e.currentTarget.dataset.index,
-      });
-    } else {
-      this.setData({
-        showIndex: 0,
-      });
-    };
-  },
-  //取消
-  cancel(e) {
-    const item = e.currentTarget.dataset.item;
-    const that = this;
-    wx.showModal({
-      title: "提示",
-      content: "是否确认取消订单",
-      success: (res) => {
-        if (res.confirm) {
-          wx.$put(`/user/order/${item._id}`, { status: -1 }).then(
-            (response) => {
-              that.getOrderList();
-            }
-          );
-        } else if (res.cancel) {
-          console.log("用户点击取消");
-        }
-      },
-    });
-  },
-  delete(e) {
-    const item = e.currentTarget.dataset.item;
-    const that = this;
-    wx.showModal({
-      title: "提示",
-      content: "是否确认删除改订单(无法找回)",
-      success: (res) => {
-        if (res.confirm) {
-          wx.$delete(`/user/order/${item._id}`).then((response) => {
-            that.getOrderList();
-          });
-        } else if (res.cancel) {
-          console.log("用户点击取消");
-        }
-      },
-    });
-  },
 
   //获取订单数据
   async getOrderList(e) {
     const orderList = await wx.$get("/user/order"); //详情看上
-    //console.log(orderList);
     this.setData({
       orderList
     });
+    console.log(this.data.orderList, 'orderList');
   },
   /**
    * 生命周期函数--监听页面加载

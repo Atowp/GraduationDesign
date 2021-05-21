@@ -6,12 +6,9 @@
     auto-focus/>
     <view bindtap="searchHanlde" class="iconfont icon-xingtaiduICON_sousuo---copy icon" ></view>
 </view>
-<view wx:for="{{list}}" class="item">
-    {{index}}
-    {{list[index].type}}
-    {{list[index].date}}
-    {{list[index].contact}}
-    {{list[index].address}}
+<view wx:for="{{itemSources}}" class="item">
+    <panel item="{{item}}">
+    </panel>
 </view>
 
   

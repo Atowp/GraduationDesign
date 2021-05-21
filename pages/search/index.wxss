@@ -1,3 +1,4 @@
+@import "../../components//Panel/index.wxss";
 @font-face {
   font-family: "iconfont";
   /* Project id 2400669 */

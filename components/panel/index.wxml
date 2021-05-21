@@ -1,5 +1,54 @@
-<view catchtap="panel" data-index="1">
-    <slot name="fold"></slot>
-    <view wx:if="{{showIndex == 2}}" data-index="0"></view>
-    <slot name="unfold"></slot>
+<view class="order-box">
+    <view class="order dd">
+    <view bindtap='toggle'>
+            <view>
+                <text>订单类型</text>
+                {{item.type}}
+            </view>
+            <view>
+                <text>重量</text>
+                {{item.weight}}kg
+            </view>
+            <view>
+                <text>预约时间</text>
+                {{item.time}}
+            </view>
+            <!--展开折叠分割线-->
+            <view wx:if="{{fold === true}}">
+                <view wx: if="{{item.detail}} !== ''">
+                    <view>
+                        <text>详细内容</text>
+                        {{item.detail}}
+                    </view>
+                </view>
+                <view>
+                    <text>联系人</text>
+                    {{item.contact}}
+                </view>
+                <view>
+                    <text>电话</text>
+                    {{item.phone}}
+                </view>
+                <view>
+                    <text>详细地址</text>
+                    {{item.address}}
+                </view>
+                <view>
+                    <text>订单状态</text>
+                    {{statusDict[item.status]}}
+                </view>
+                <view>
+                    <text>备注</text>
+                    {{item.remark}}
+                </view>
+               <view wx:if="{{item.status === -1}}" class="button_box delete" catchtap="delete" >
+                    <view class="button">删除订单</view>
+                    </view>
+                <view class="button_box cancel"  wx:if="{{item.status === 0 || item.status === 1}}" catchtap="cancel">
+                    <view class="button">取消订单</view>
+                </view>
+                </view>
+        </view>
+    </view>
 </view>
+  
