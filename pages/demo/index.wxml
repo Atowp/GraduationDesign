@@ -1,7 +1,5 @@
 <!--pages/order/index.wxml-->
 <view class="">
-    <!--搜索框-->
-    <SearchInput></SearchInput>
     <!--订单-->
     <view class="order_content">
         <!--进行部分-->
@@ -17,36 +15,9 @@
                         <text>订单类型</text>
                         {{item.type}}
                     </view>
-                    <view>
-                        <text>重量</text>
-                        {{item.weight}}kg
-                    </view>
-                    <view>
-                        <text>预约时间</text>
-                        {{item.time}}
-                    </view>
                     </view>
                     <!--折叠展开分割线-->
                     <view class="unfold" wx:if="{{showIndex == 1}}" data-index="0">
-                    <block wx: if="{{item.detail}} !== ''">
-                    <view>
-                        <text>详细内容</text>
-                        {{item.detail}}
-                    </view>
-                    </block>
-                    <block wx: else></block>
-                    <view>
-                        <text>联系人</text>
-                        {{item.contact}}
-                    </view>
-                    <view>
-                        <text>电话</text>
-                        {{item.phone}}
-                    </view>
-                    <view>
-                        <text>详细地址</text>
-                        {{item.address}}
-                    </view>
                     <view>
                         <text>订单状态</text>
                         {{statusDict[item.status]}}
@@ -71,11 +42,6 @@
         <view class="block">
             <view class="title_box">
             <text class="title">历史订单</text>
-            <!--这个bind应该绑在循环项上-->
-                <picker bindchange="bindPickerChange" class="picker_box" value="{{index}}" range="{{array}}">
-                    <view class="picker">{{array[index]}}</view>
-                </picker>
-            <!--筛选end-->
             </view>
             <!--历史订单-->
             <view class="order_box" 
@@ -137,8 +103,6 @@
             <!--注意elif-->
             <block wx: else></block>
             </view>
-            
-            
             <!--历史end-->
         </view>
         <!--历史部分-->

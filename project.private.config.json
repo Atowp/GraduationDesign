@@ -77,6 +77,12 @@
           "pathName": "pages/confirm/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/demo/index",
+          "pathName": "pages/demo/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

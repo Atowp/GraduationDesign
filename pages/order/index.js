@@ -72,7 +72,7 @@ Page({
       1: "未接取",
       2: "交易成功",
     },
-    status_index: 0,
+    status_index: 0
   },
   //筛选相关
   bindPickerChange: function (e) {
@@ -90,7 +90,7 @@ Page({
       this.setData({
         showIndex: 0,
       });
-    }
+    };
   },
   //取消
   cancel(e) {
@@ -133,10 +133,14 @@ Page({
   //获取订单数据
   async getOrderList(e) {
     const orderList = await wx.$get("/user/order"); //详情看上
-    console.log("orderList", orderList);
-    this.setData({
-      orderList,
-    });
+    console.log(orderList);
+    for(let i=0; i<orderList.length; i++){
+      this.setData({
+        orderList,
+        status_index: i
+      });
+      console.log(orderList[i].status);//订单状态
+    };
   },
   /**
    * 生命周期函数--监听页面加载

@@ -17,7 +17,8 @@
     "pages/staff-login/index",
     "pages/confirm/index",
     "pages/notice2/index",
-    "pages/phone/index"
+    "pages/phone/index",
+    "pages/demo/index"
   ],
   "window": {
     "backgroundColor": "#7dd0b4",
