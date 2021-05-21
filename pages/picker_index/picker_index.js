@@ -125,19 +125,17 @@ Page({
       nav
     })
   },//导航
-  panel: function (e) {
-    if (e.currentTarget.dataset.index != this.data.showIndex) {
-      this.setData({
-        showIndex: e.currentTarget.dataset.index,
-      });
-    } else {
-      this.setData({
-        showIndex: 0,
-      });
-    };
-  },
-  finish(){},
-  access(){},
+  //panel: function (e) {
+  //  if (e.currentTarget.dataset.index != this.data.showIndex) {
+  //    this.setData({
+  //      showIndex: e.currentTarget.dataset.index,
+  //    });
+  //  } else {
+  //    this.setData({
+  //      showIndex: 0,
+  //    });
+  //  };
+  //},
   async getOrderList(e) {
     const orderList = await wx.$get("/user/order");
     //console.log(orderList);

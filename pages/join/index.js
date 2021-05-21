@@ -10,7 +10,7 @@ Page({
   join (e) {
     const test = e.currentTarget.dataset.test;//test
     //console.log(test);
-    if(test === 1){//判断有无拾荒者身份
+    if(this.data.status.status == 0){//判断有无拾荒者身份 0普通 2拾荒者
       wx.navigateTo({
         url: '../staff-login/index'
       });
@@ -20,13 +20,12 @@ Page({
         icon: 'error',
         duration: 2000
       });
-      console.log(this.data.status);
     }
   },
   enter (e) {
     const test2 = e.currentTarget.dataset.test2;
-    console.log(test2);
-    if(test2 === 1){//判断有无拾荒者身份
+    //console.log(test2);
+    if(1){//判断有无拾荒者身份
       wx.reLaunch({
         url: '../picker_index/picker_index'
       });
@@ -36,7 +35,8 @@ Page({
         icon: 'error',
         duration: 2000
       })
-    }
+    };
+    //console.log(this.data.status);
   },
   async getUserInfo() {
     const status = await wx.$get("/user/info"); 

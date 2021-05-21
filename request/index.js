@@ -17,8 +17,8 @@ export const request = (params) => {
 }
 
 const request2 = ({ url = "", data = {}, method = "POST", header = {} } = {}) => {
-      // const baseUrl = "https://gomong.atowp.top";
-    const baseUrl = "http://localhost:8310";
+       const baseUrl = "https://gomong.atowp.top";
+    //const baseUrl = "http://localhost:8310";
     return new Promise((resolve, reject) => {
       const token  = wx.getStorageSync('token');
       if (token) {

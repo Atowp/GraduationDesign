@@ -2,5 +2,5 @@
     <view class="icon">
         <icon class="item" type="success" size="70" color="rgb(125,208,180)"/>
     </view>
-    <view class="text">3秒后跳转回首页</view>
+    <view class="text">2秒后跳转回首页</view>
 </view>

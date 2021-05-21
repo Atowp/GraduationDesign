@@ -1,4 +1,4 @@
-<view class="order-box">
+<view class="order_box">
     <view class="order dd">
     <view bindtap='toggle'>
             <view>
@@ -45,11 +45,14 @@
                     <text>备注</text>
                     {{item.remark}}
                 </view>
-               <view wx:if="{{item.status === -1}}" class="button_box delete" catchtap="delete" >
-                    <view class="button">删除订单</view>
+               <view wx:if="{{item.status === 1}}" class="button_box finish" catchtap="finish" >
+                    <view class="button">确认订单完成</view>
                 </view>
-                <view class="button_box cancel"  wx:if="{{item.status === 0 || item.status === 1}}" catchtap="cancel">
-                    <view class="button">取消订单</view>
+                <view class="button_box gain"  wx:if="{{item.status === 0}}" catchtap="gain">
+                    <view class="button">接取订单</view>
+                </view>
+                <view wx:if="{{item.status === -1}}" class="button_box delete" catchtap="delete" >
+                    <view class="button">删除订单</view>
                 </view>
                 </view>
         </view>

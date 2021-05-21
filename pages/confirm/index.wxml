@@ -55,7 +55,7 @@
 </view>
 <view class="box">
     <view class="remark_box">
-        <textarea placeholder="备注"></textarea>
+        <textarea placeholder="备注" name="remark"></textarea>
     </view>
 </view>
 <view class="box">

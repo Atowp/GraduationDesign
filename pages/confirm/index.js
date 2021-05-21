@@ -98,8 +98,8 @@ Page({
 
   submit (e) {
     let date = new Date().toLocaleDateString();
-    const {contact,phone,weight} = e.detail.value;
-    const {point,type,detail,array,index,remark,status} = this.data;
+    const {contact,phone,weight,remark} = e.detail.value;
+    const {point,type,detail,array,index,status} = this.data;
     const address = point && point.address + point.name;
     //console.log(address);
     //console.log(phone);

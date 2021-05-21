@@ -1,4 +1,4 @@
-// components/panel/index.js
+// components/panel2/index.js
 Component({
   /**
    * 组件的属性列表
@@ -34,19 +34,33 @@ Component({
         fold: !this.data.fold,
       });
     },
-    cancel() {
+    gain(){
       const that = this;
       wx.showModal({
         title: "提示",
-        content: "是否确认取消订单",
+        content: "是否确认接取订单",
         success: (res) => {
           if (res.confirm) {
-            wx.$put(`/user/order/${this.data.item._id}`, { status: -1 }).then(() => that.triggerEvent('reload'));
-          } else if (res.cancel) {
-            console.log("用户点击取消");
-          }
-        },
-      });
+            wx.$put(`/picker/order/${this.data.item._id}`, { status: 1 }).then(() => that.triggerEvent('reload'));
+          } else if (res.gain) {
+            console.log("用户点击接取");
+          };
+        }
+      })
+    },
+    finish(){
+      const that = this;
+      wx.showModal({
+        title: "提示",
+        content: "是否确认完成订单",
+        success: (res) => {
+          if (res.confirm) {
+            wx.$put(`/picker/order/${this.data.item._id}`, { status: 2 }).then(() => that.triggerEvent('reload'));
+          } else if (res.gain) {
+            console.log("用户点击完成");
+          };
+        }
+      })
     },
     delete(e) {
       const that = this;
@@ -62,6 +76,6 @@ Component({
           }
         },
       });
-    },
+    }
   },
 });

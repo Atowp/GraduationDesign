@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "panel":"../../components/Panel/index"
+    "panel":"../../components/panel/index"
   }
 }

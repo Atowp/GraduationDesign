@@ -1,4 +1,4 @@
-@import "../../components//Panel/index.wxss";
+@import "../../components/panel/index.wxss";
 
 page {
   font-size: 35rpx;

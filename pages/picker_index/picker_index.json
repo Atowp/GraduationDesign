@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "Nav":"../../components/Nav/Nav"
+    "Nav":"../../components/Nav/Nav",
+    "panel":"../../components/panel_picker/index"
   },
   "navigationBarBackgroundColor": "#fbd22c",
   "navigationBarTextStyle": "black",
