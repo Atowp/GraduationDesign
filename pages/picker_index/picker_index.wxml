@@ -56,9 +56,9 @@
                     <view class=" title" >姓名：</view>
                     <view><input placeholder="授权给的" name="name" value="{{userInfo.name}}" /></view>
                 </view>
-                <view class="info_box" >
+                <view class="info_box"  bindtap="changeSex">
                     <view class=" title">性别：</view>
-                    <view>{{userInfo.sex === 1 ? '男' : '女'}}</view>
+                    <view>{{sex === 1 ? '男' : '女'}}</view>
                 </view>
                 <view class="info_box">
                     <view class=" title">地区：</view>

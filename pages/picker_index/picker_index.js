@@ -22,10 +22,10 @@ Page({
     unfold: false,
     userInfo: {
       name: "",
-      sex: 0,
       address: "",
       phone: "",
     },
+    sex: 0,
     likeWeight: "",
     likeArea: [],
     likeType: ["一键回收"],
@@ -152,6 +152,7 @@ Page({
     });
     this.setData({
       userInfo,
+      sex: userInfo.sex,
       likeArea,
       likeWeight: userInfo.likeWeight,
     });
@@ -171,6 +172,7 @@ Page({
       likeArea.push(item === "全部" ? "" : item)
     );
     const userInfo = this.data.userInfo;
+    const sex = this.data.sex;
     const likeWeight = this.data.likeWeight;
     wx.$put(`/user/info/${userInfo._id}`, {
       likeArea,
@@ -188,4 +190,17 @@ Page({
     this.getUserInfo();
     this.checkboxChange();
   },
+  changeSex() {
+    console.log('change sex');
+    let {sex} = this.data;
+    if (sex === 1) {
+      sex = 2
+    } else {
+      sex = 1
+    }
+    this.setData({
+      sex
+    })
+    console.log(this.data.sex)
+  }
 });
